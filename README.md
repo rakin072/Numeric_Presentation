@@ -43,7 +43,13 @@
     - [Code](#Secant-code)
     - [Input](#Secant-input)
     - [Output](#Secant-output)
-  
+      
+- [Solution of Ordinary Differential Equations](#solution-of-ordinary-differential-equations)
+  - [Runge Kutta Method](#runge-kutta-method)
+    - [Theory](#runge-kutta-theory)
+    - [Code](#runge-kutta-code)
+    - [Input](#runge-kutta-input)
+    - [Output](#runge-kutta-output)  
 ---
 
 ### Solution of Linear Equations
