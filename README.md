@@ -2096,7 +2096,7 @@ The Result is 0.785398
 ```
 ### Numerical Differentiation
 
-### Differentiation By Forward Interpolation Rule
+### Differentiation By Forward Interpolation 
 
 #### Differentiation By Forward Interpolation Theory
 [Add your theory content here]
@@ -2115,7 +2115,7 @@ The Result is 0.785398
 ```
 
 ```
-### Differentiation By Backward Interpolation Rule
+### Differentiation By Backward Interpolation 
 
 #### Differentiation By Backward Interpolation Theory
 [Add your theory content here]
