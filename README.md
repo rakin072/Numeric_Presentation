@@ -1583,22 +1583,22 @@ Resulting polynomial:
 y = 3 + 2*x + 1*x^2
 ```
 ### Solution of Interpolation Method
-### Newton Foward Interpolation
+### Newton Forward Interpolation
 
-#### Newton Foward Interpolation Theory
+#### Newton Forward Interpolation Theory
 [Add your theory content here]
 
-#### Newton Foward Interpolation Code
+#### Newton Forward Interpolation Code
 ```python
 # Add your code here
 ```
 
-#### Newton Foward Interpolation Input
+#### Newton Forward Interpolation Input
 ```
 [Add your input format here]
 ```
 
-#### Newton Foward Interpolation Output
+#### Newton Forward Interpolation Output
 ```
 [Add your output format here]
 ```
