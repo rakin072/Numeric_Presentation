@@ -1852,17 +1852,123 @@ Numerical Error = 1.395
 
 #### Newton Divided Difference Interpolation Code
 ```python
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll double
+
+ll dividedDifference(vector<ll> &x, vector<ll> &y, ll tar, ofstream &out)
+{
+    int n = x.size();
+    vector<vector<ll>> table(n, vector<ll>(n));
+
+    for (int i = 0; i < n; i++)
+        table[i][0] = y[i];
+
+    for (int j = 1; j < n; j++)
+        for (int i = 0; i < n - j; i++)
+            table[i][j] = (table[i + 1][j - 1] - table[i][j - 1]) / (x[i + j] - x[i]);
+
+    out << "Divided Difference Table:\n";
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - i; j++)
+            out << setw(12) << table[i][j] << " ";
+        out << "\n";
+    }
+    out << "\n";
+
+    ll ans = table[0][0];
+    ll term = 1;
+
+    for (int i = 1; i < n; i++)
+    {
+        term *= (tar - x[i - 1]);
+        ans += term * table[0][i];
+    }
+
+    return ans;
+}
+
+int main()
+{
+    ifstream in("input.txt");
+    ofstream out("output.txt");
+
+    int n;
+    in >> n;
+
+    vector<ll> x(n), y(n);
+    for (int i = 0; i < n; i++) in >> x[i];
+    for (int i = 0; i < n; i++) in >> y[i];
+
+    ll target;
+    in >> target;
+
+    ll ans1 = dividedDifference(x, y, target, out);
+    ll students1 = ans1 - y[0];
+
+    out << "Cumulative frequency at " << target << " = " << ans1 << "\n";
+    out << "Students between " << x[0] << " and " << target << " = " << students1 << "\n\n";
+
+    ll nx, ny;
+    in >> nx >> ny;
+
+    x.push_back(nx);
+    y.push_back(ny);
+
+    out << "After adding new data:\n";
+
+    ll ans2 = dividedDifference(x, y, target, out);
+    ll students2 = ans2 - y[0];
+
+    out << "Cumulative frequency at " << target << " = " << ans2 << "\n";
+    out << "Students between " << x[0] << " and " << target << " = " << students2 << "\n";
+    out << "Error = " << abs(students2 - students1) << "\n";
+
+    in.close();
+    out.close();
+
+    return 0;
+}
+
 ```
 
 #### Newton Divided Difference Interpolation Input
 ```
-[Add your input format here]
+5
+40 50 60 70 80
+31 73 124 159 190
+45
+90 220
+
 ```
 
 #### Newton Divided Difference Interpolation Output
 ```
-[Add your output format here]
+Forward Difference Table:
+        31         42          9        -25         37 
+        73         51        -16         12 
+       124         35         -4 
+       159         31 
+       190 
+
+Cumulative frequency at 45 = 47.8672
+Students between 40 and 45 = 16.8672
+
+After adding new data:
+Forward Difference Table:
+        31         42          9        -25         37        -46 
+        73         51        -16         12         -9 
+       124         35         -4          3 
+       159         31         -1 
+       190         30 
+       220 
+
+Cumulative frequency at 45 = 46.6094
+Students between 40 and 45 = 15.6094
+Error = 1.25781
+
 ```
 
 ---
