@@ -1658,7 +1658,7 @@ int main() {
     double cfff=cf[n-2];
     double ans1=cff-cfff;
 
-    cout<<"\nStudents between 40 and 45 = "<<fixed<<setprecision(3)<<ans1<<"\n";
+    cout<<"\nStudents between 70 and 75 = "<<fixed<<setprecision(3)<<ans1<<"\n";
 
     x.push_back(xx);
     f.push_back(yy);
@@ -1690,7 +1690,7 @@ int main() {
 
     double ans2=cffn-cfff;
 
-    cout<<"\nNew Students between 40 and 45 = "<<fixed<<setprecision(3)<<ans2<<"\n";
+    cout<<"\nNew Students between 70 and 75 = "<<fixed<<setprecision(3)<<ans2<<"\n";
     cout<<"\nNumerical Error = "<<fixed<<setprecision(3)<<fabs(ans2-ans1)<<"\n";
 
     return 0;
@@ -1717,7 +1717,7 @@ Backward Difference Table (upto 70-80)
 159.00 35.00 -16.00 -25.00 
 190.00 31.00 -4.00 12.00 37.00 
 
-Students between 40 and 45 = 13.805
+Students between 70 and 75 = 13.805
 
 Backward Difference Table (with 80-90)
 31.00 
@@ -1727,7 +1727,7 @@ Backward Difference Table (with 80-90)
 190.00 31.00 -4.00 12.00 37.00 
 215.00 25.00 -6.00 -2.00 -14.00 -51.00 
 
-New Students between 40 and 45 = 15.199
+New Students between 70 and 75 = 15.199
 
 Numerical Error = 1.395
 
