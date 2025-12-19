@@ -67,6 +67,7 @@
       - [Code](#polynomial-equation-code)
       - [Input](#polynomial-equation-input)
       - [Output](#polynomial-equation-output)
+      
  - [Solution of Interpolation Method](#solution-of-interpolation-method)
     - [Newton Forward Interpolation](#newton-forward-interpolation)
       - [Theory](#newton-forward-interpolation-theory)
@@ -82,7 +83,19 @@
       - [Theory](#newton-divided-difference-theory)
       - [Code](#newton-divided-difference-code)
       - [Input](#newton-divided-difference-input)
-      - [Output](#newton-divided-difference-output)       
+      - [Output](#newton-divided-difference-output)
+        
+  - [Numerical Integration](#numerical-integration)
+    - [Simpson’s 1/3 Rule](#simpsons-13-rule)
+      - [Theory](#simpsons-13-theory)
+      - [Code](#simpsons-13-code)
+      - [Input](#simpsons-13-input)
+      - [Output](#simpsons-13-output)
+    - [Simpson’s 3/8 Rule](#simpsons-38-rule)
+      - [Theory](#simpsons-38-theory)
+      - [Code](#simpsons-38-code)
+      - [Input](#simpsons-38-input)
+      - [Output](#simpsons-38-output)       
 ---
 
 ### Solution of Linear Equations
@@ -1968,8 +1981,46 @@ Forward Difference Table:
 Cumulative frequency at 45 = 46.6094
 Students between 40 and 45 = 15.6094
 Error = 1.25781
+```
+### Numerical Integration
+
+### Simpson’s 1/3 Rule
+
+#### Simpson’s 1/3 Theory
+[Add your theory content here]
+
+#### Simpson’s 1/3 Code
+```python
+
 
 ```
 
+#### Simpson’s 1/3 Input
+```
+
+```
+
+#### Simpson’s 1/3 Output
+```
+```
+### Simpson’s 3/8 Rule
+
+#### Simpson’s 3/8 Theory
+[Add your theory content here]
+
+#### Simpson’s 3/8 Code
+```python
+
+
+```
+
+#### Simpson’s 3/8 Input
+```
+
+```
+
+#### Simpson’s 3/8 Output
+```
+```
 ---
 
