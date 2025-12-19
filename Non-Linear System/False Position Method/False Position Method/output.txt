@@ -1,8 +1,0 @@
-Root 1 : -2
-Interval 1 : -2.32843 -1.82843
-Iteration 1 : 7
-
-Root 2 : 2
-Interval 2 : 1.67157 2.17157
-Iteration 2 : 6
-
