@@ -6,19 +6,17 @@ double f(double x, double y) {
 }
 
 int main() {
-
-    
      freopen("input.txt", "r", stdin);
      freopen("output.txt", "w", stdout);
     double x0,y0;
-   // cout<<"init x:";
+    //cout<<"init x:";
     cin>>x0;
    // cout<<"init y:";
    cin>>y0;
    // cout<<"step size :";
     double h;
     cin>>h;    
-   // cout<<"target value of x:" ;    
+    //cout<<"target value of x:" ;    
     double xn ; cin>>xn;        
 
     double x = x0, y = y0;
