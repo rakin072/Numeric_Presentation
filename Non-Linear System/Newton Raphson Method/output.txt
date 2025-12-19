@@ -1,0 +1,81 @@
+Enter number of test cases:
+Enter the degree of the equation:
+Enter coeffients:
+function:1x^5-8x^4-7x^3+58x^2+40x^1
+
+derivative:5x^4-32x^3-21x^2+116x^1+40x^00
+
+[-tmax,tmax]:[-8.83176,8.83176]
+f1:-286.112 f2:5.39905
+f(x): 5.39905
+df(x):208.844
+f(x): -0.189779
+df(x):223.609
+f(x): -0.000209056
+df(x):223.116
+search interval for root is :[ -2.98176 to -2.33176 ]
+Root1 : -2.35676
+Number of the iterations: 3
+
+f1:17.9257 f2:-6.606
+f(x): -6.606
+df(x):-5.4582
+f(x): 49.9505
+df(x):-36.6554
+f(x): -6.06135
+df(x):12.6915
+f(x): 13.3679
+df(x):67.0322
+f(x): 2.09041
+df(x):45.61
+f(x): 0.120231
+df(x):40.347
+f(x): 0.000514664
+df(x):40.0015
+f(x): 9.60112e-09
+df(x):40
+search interval for root is :[ -1.03176 to -0.381761 ]
+Root2 : 8.35395e-20
+Number of the iterations: 8
+
+f1:-6.606 f2:14.7277
+f(x): 14.7277
+df(x):69.013
+f(x): 2.36657
+df(x):46.2925
+f(x): 0.149312
+df(x):40.4304
+f(x): 0.000790328
+df(x):40.0023
+f(x): 2.26397e-08
+df(x):40
+search interval for root is :[ -0.381761 to 0.268239 ]
+Root3 : 4.64504e-19
+Number of the iterations: 5
+
+f1:79.3904 f2:-132.861
+f(x): -132.861
+df(x):-439.308
+f(x): -16.0026
+df(x):-333.604
+f(x): -0.398145
+df(x):-317.02
+f(x): -0.000271773
+df(x):-316.588
+search interval for root is :[ 2.86824 to 3.51824 ]
+Root4 : 3.16658
+Number of the iterations: 4
+
+f1:-1130.87 f2:710.995
+f(x): 710.995
+df(x):3989.8
+f(x): 61.8724
+df(x):3307.29
+f(x): 0.633179
+df(x):3239.72
+f(x): 6.85862e-05
+df(x):3239.02
+search interval for root is :[ 7.41824 to 8.06824 ]
+Root5 : 7.87113
+Number of the iterations: 4
+
