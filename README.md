@@ -49,7 +49,24 @@
     - [Theory](#runge-kutta-theory)
     - [Code](#runge-kutta-code)
     - [Input](#runge-kutta-input)
-    - [Output](#runge-kutta-output)  
+    - [Output](#runge-kutta-output)
+      
+ - [Solution of Least Square Regression](#solution-of-least-square-regression)
+  - [Linear Equation Method](#linear-equation-method)
+    - [Theory](#linear-equation-method-theory)
+    - [Code](#linear-equation-method-code)
+    - [Input](#linear-equation-method-input)
+    - [Output](#linear-equation-method-output)
+  - [Transcendental Equation Method](#transcendental-equation-method)
+    - [Theory](#transcendental-equation-method-theory)
+    - [Code](#transcendental-equation-method-code)
+    - [Input](#transcendental-equation-method-input)
+    - [Output](#transcendental-equation-method-output)
+  - [Polynomial Equation Method](#polunomial-equation-method)
+    - [Theory](#polunomial-equation-theory)
+    - [Code](#polunomial-equation-code)
+    - [Input](#polunomial-equation-input)
+    - [Output](#polunomial-equation-output)
 ---
 
 ### Solution of Linear Equations
