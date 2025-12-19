@@ -52,21 +52,21 @@
     - [Output](#runge-kutta-output)
       
  - [Solution of Least Square Regression](#solution-of-least-square-regression)
-  - [Linear Equation Method](#linear-equation-method)
-    - [Theory](#linear-equation-method-theory)
-    - [Code](#linear-equation-method-code)
-    - [Input](#linear-equation-method-input)
-    - [Output](#linear-equation-method-output)
-  - [Transcendental Equation Method](#transcendental-equation-method)
-    - [Theory](#transcendental-equation-method-theory)
-    - [Code](#transcendental-equation-method-code)
-    - [Input](#transcendental-equation-method-input)
-    - [Output](#transcendental-equation-method-output)
-  - [Polynomial Equation Method](#polunomial-equation-method)
-    - [Theory](#polunomial-equation-theory)
-    - [Code](#polunomial-equation-code)
-    - [Input](#polunomial-equation-input)
-    - [Output](#polunomial-equation-output)
+    - [Linear Equation Method](#linear-equation)
+      - [Theory](#linear-equation-theory)
+      - [Code](#linear-equation-code)
+      - [Input](#linear-equation-input)
+      - [Output](#linear-equation-output)
+    - [Transcendental Equation Method](#transcendental-equation)
+      - [Theory](#transcendental-equation-theory)
+      - [Code](#transcendental-equation-code)
+      - [Input](#transcendental-equation-input)
+      - [Output](#transcendental-equation-output)
+    - [Polynomial Equation Method](#polunomial-equation)
+      - [Theory](#polunomial-equation-theory)
+      - [Code](#polunomial-equation-code)
+      - [Input](#polunomial-equation-input)
+      - [Output](#polunomial-equation-output)
 ---
 
 ### Solution of Linear Equations
@@ -1161,7 +1161,8 @@ Iteration 2 : 4
 ```
 
 #### Secant Output
-```1x^4-5x^2+4=0
+```
+1x^4-5x^2+4=0
 Root 1: -2
 Search Interval : [-6, -5.55]
 No of iteration : 10
@@ -1282,5 +1283,58 @@ int main() {
 ```
 y(0.300000) = 1.488017
 ```
+### Solution of Least Square Regression
 
+### Linear Equation Method
+
+#### Linear Equation Theory
+[Add your theory content here]
+
+#### Linear Equation Code
+```python
+
+```
+
+#### Linear Equation Input
+```
+```
+
+#### Linear Equation Output
+```
+```
+### Transcendental Equation Method
+
+#### Transcendental Equation Theory
+[Add your theory content here]
+
+#### Transcendental Equation Code
+```python
+
+```
+
+#### Transcendental Equation Input
+```
+```
+
+#### Transcendental Equation Output
+```
+```
+### Polynomial Equation Method
+
+#### Polynomial Equation Theory
+[Add your theory content here]
+
+#### Polynomial Equation Code
+```python
+
+```
+
+#### Polynomial Equation Input
+```
+```
+
+#### Polynomial Equation Output
+```
+```
 ---
+
