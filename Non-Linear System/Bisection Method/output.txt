@@ -1,0 +1,15 @@
+Enter number of test cases: 
+Enter coefficients a b c d e: 
+Search interval:[-59 59]
+interval:[-2.5 -2]
+root:-2.35675
+iteration:13
+interval:[-1 -0.5]
+root:-0.680969
+iteration:13
+interval:[3 3.5]
+root:3.16656
+iteration:13
+interval:[7.5 8]
+root:7.87115
+iteration:13
