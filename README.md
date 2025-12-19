@@ -52,17 +52,17 @@
     - [Output](#runge-kutta-output)
       
  - [Solution of Least Square Regression](#solution-of-least-square-regression)
-    - [Linear Equation Method](#linear-equation-method)
-      - [Theory](#linear-equation-method-theory)
-      - [Code](#linear-equation-method-code)
-      - [Input](#linear-equation-method-input)
-      - [Output](#linear-equation-method-output)
-    - [Transcendental Equation Method](#transcendental-equation-method)
-      - [Theory](#transcendental-equation-method-theory)
-      - [Code](#transcendental-equation-method-code)
-      - [Input](#transcendental-equation-method-input)
-      - [Output](#transcendental-equation-method-output)
-    - [Polynomial Equation Method](#polunomial-equation-method)
+    - [Linear Equation Method](#linear-equation)
+      - [Theory](#linear-equation-theory)
+      - [Code](#linear-equation-code)
+      - [Input](#linear-equation-input)
+      - [Output](#linear-equation-output)
+    - [Transcendental Equation Method](#transcendental-equation)
+      - [Theory](#transcendental-equation-theory)
+      - [Code](#transcendental-equation-code)
+      - [Input](#transcendental-equation-input)
+      - [Output](#transcendental-equation-output)
+    - [Polynomial Equation Method](#polunomial-equation)
       - [Theory](#polunomial-equation-theory)
       - [Code](#polunomial-equation-code)
       - [Input](#polunomial-equation-input)
@@ -1161,7 +1161,8 @@ Iteration 2 : 4
 ```
 
 #### Secant Output
-```1x^4-5x^2+4=0
+```
+1x^4-5x^2+4=0
 Root 1: -2
 Search Interval : [-6, -5.55]
 No of iteration : 10
