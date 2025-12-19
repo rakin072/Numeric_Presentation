@@ -95,7 +95,19 @@
       - [Theory](#simpsons-38-theory)
       - [Code](#simpsons-38-code)
       - [Input](#simpsons-38-input)
-      - [Output](#simpsons-38-output)       
+      - [Output](#simpsons-38-output)
+      - 
+  - [Numerical Differentiation](#numerical-differentiation)
+      - [Differentiation By Forward Interpolation](#differentiation-by-forward-interpolation)
+          - [Theory](#differentiation-by-forward-interpolation-theory)
+          - [Code](#differentiation-by-forward-interpolation-code)
+          - [Input](#differentiation-by-forward-interpolation-input)
+          - [Output](#differentiation-by-forward-interpolation-output)
+      - [Differentiation By Backward Interpolation](#differentiation-by-backward-interpolation)
+          - [Theory](#differentiation-by-backward-interpolation-theory)
+          - [Code](#differentiation-by-backward-interpolation-code)
+          - [Input](#differentiation-by-backward-interpolation-input)
+          - [Output](#differentiation-by-backward-interpolation-output)     
 ---
 
 ### Solution of Linear Equations
@@ -2081,6 +2093,46 @@ int main(){
 #### Simpson’s 3/8 Output
 ```
 The Result is 0.785398
+```
+### Numerical Differentiation
+
+### Differentiation By Forward Interpolation Method
+
+#### Differentiation By Forward Interpolation Theory
+[Add your theory content here]
+
+#### Differentiation By Forward Interpolation Code
+```python
+
+```
+
+#### Differentiation By Forward Interpolation Input
+```
+
+```
+
+#### Differentiation By Forward Interpolation Output
+```
+
+```
+### Differentiation By Backward Interpolation Method
+
+#### Differentiation By Backward Interpolation Theory
+[Add your theory content here]
+
+#### Differentiation By Backward Interpolation Code
+```python
+
+```
+
+#### Differentiation By Backward Interpolation Input
+```
+
+```
+
+#### Differentiation By Backward Interpolation Output
+```
+
 ```
 ---
 
