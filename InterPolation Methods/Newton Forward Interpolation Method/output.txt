@@ -1,0 +1,22 @@
+Forward Difference Table:
+        31         42          9        -25         37 
+        73         51        -16         12 
+       124         35         -4 
+       159         31 
+       190 
+
+Cumulative frequency at 45 = 47.8672
+Students between 40 and 45 = 16.8672
+
+After adding new data:
+Forward Difference Table:
+        31         42          9        -25         37        -46 
+        73         51        -16         12         -9 
+       124         35         -4          3 
+       159         31         -1 
+       190         30 
+       220 
+
+Cumulative frequency at 45 = 46.6094
+Students between 40 and 45 = 15.6094
+Error = 1.25781
