@@ -1,0 +1,22 @@
+Divided Difference Table:
+          31          4.2        0.045  -0.00416667  0.000154167 
+          73          5.1        -0.08        0.002 
+         124          3.5        -0.02 
+         159          3.1 
+         190 
+
+Cumulative frequency at 45 = 47.8672
+Students between 40 and 45 = 16.8672
+
+After adding new data:
+Divided Difference Table:
+          31          4.2        0.045  -0.00416667  0.000154167 -3.83333e-006 
+          73          5.1        -0.08        0.002   -3.75e-005 
+         124          3.5        -0.02       0.0005 
+         159          3.1       -0.005 
+         190            3 
+         220 
+
+Cumulative frequency at 45 = 46.6094
+Students between 40 and 45 = 15.6094
+Error = 1.25781
