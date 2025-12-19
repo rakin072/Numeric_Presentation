@@ -67,6 +67,22 @@
       - [Code](#polynomial-equation-code)
       - [Input](#polynomial-equation-input)
       - [Output](#polynomial-equation-output)
+ - [Solution of Interpolation Method](#solution-of-interpolation-method)
+    - [Newton Forward Interpolation](#newton-forward-interpolation)
+      - [Theory](#newton-forward-interpolation-theory)
+      - [Code](#newton-forward-interpolation-code)
+      - [Input](#newton-forward-interpolation-input)
+      - [Output](#newton-forward-interpolation-output)
+    - [Newton Backward Interpolation](#newton-backward-interpolation)
+      - [Theory](#newton-backward-interpolation-theory)
+      - [Code](#newton-backward-interpolation-code)
+      - [Input](#newton-backward-interpolation-input)
+      - [Output](#newton-backward-interpolation-output)
+    - [Newton Divided Difference Interpolation](#newton-divided-difference-interpolation)
+      - [Theory](#newton-divided-difference-theory)
+      - [Code](#newton-divided-difference-code)
+      - [Input](#newton-divided-difference-input)
+      - [Output](#newton-divided-difference-output)       
 ---
 
 ### Solution of Linear Equations
@@ -1566,5 +1582,63 @@ cout << endl;
 Resulting polynomial:
 y = 3 + 2*x + 1*x^2
 ```
+### Solution of Interpolation Method
+### Newton Foward Interpolation
+
+#### Newton Foward Interpolation Theory
+[Add your theory content here]
+
+#### Newton Foward Interpolation Code
+```python
+# Add your code here
+```
+
+#### Newton Foward Interpolation Input
+```
+[Add your input format here]
+```
+
+#### Newton Foward Interpolation Output
+```
+[Add your output format here]
+```
+### Newton Backward Interpolation
+
+#### Newton Backward Interpolation Theory
+[Add your theory content here]
+
+#### Newton Backward Interpolation Code
+```python
+# Add your code here
+```
+
+#### Newton Backward Interpolation Input
+```
+[Add your input format here]
+```
+
+#### Newton Backward Interpolation Output
+```
+[Add your output format here]
+```
+### Newton Divided Difference Interpolation
+#### Newton Divided Difference Interpolation Theory
+[Add your theory content here]
+
+#### Newton Divided Difference Interpolation Code
+```python
+# Add your code here
+```
+
+#### Newton Divided Difference Interpolation Input
+```
+[Add your input format here]
+```
+
+#### Newton Divided Difference Interpolation Output
+```
+[Add your output format here]
+```
+
 ---
 
