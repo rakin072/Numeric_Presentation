@@ -1203,3 +1203,26 @@ No of iteration : 10
 
 ```
 ---
+### Solution of Ordinary Differential Equations
+
+### Runge Kutta Method
+
+#### Runge Kutta Theory
+[Add your theory content here]
+
+#### Runge Kutta Code
+```python
+# Add your code here
+```
+
+#### Runge Kutta Input
+```
+[Add your input format here]
+```
+
+#### Runge Kutta Output
+```
+[Add your output format here]
+```
+
+---
