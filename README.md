@@ -55,17 +55,170 @@
 
 #### Gauss Elimination Code
 ```python
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+#define db double
+int main()
+{    freopen("input.txt", "r", stdin);
+     freopen("output.txt", "w", stdout);
+   // cout << "Number of test cases:" << endl;
+
+    db t;
+    cin >> t;
+    while (t--)
+    {
+
+        int n;
+      //  cout << "Enter number of equation : ";
+        cin >> n;
+
+        vector<vector<db>> v(n, vector<db>(n + 1));
+
+        for (int i = 0; i < n; i++)
+        {
+
+            for (int j = 0; j <= n; j++)
+            {
+                cin >> v[i][j];
+            }
+        }
+
+        bool jj = 1;
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (fabs(v[i][i]) < 1e-6)
+            {
+                for (int k = i + 1; k < n; k++)
+                {
+
+                    if (fabs(v[k][i]) > fabs(v[i][i]))
+                    {
+
+                        v[i][i] = v[k][i];
+                        swap(v[i], v[k]);
+                    }
+                }
+            }
+
+            cout << "Pivot:" << v[i][i] << endl;
+            for (int k = i + 1; k < n; k++)
+            {
+                db f = v[k][i] / v[i][i];
+                for (int j = 0; j <= n; j++)
+                {
+                    v[k][j] -= v[i][j] * f;
+                }
+                for (int i = 0; i < n; i++)
+                {
+
+                    for (int j = 0; j <= n; j++)
+                    {
+                        cout << v[i][j] << " ";
+                    }
+                    cout << endl;
+                }
+            }
+        }
+
+        if (jj)
+        {
+            vector<db> ans(n);
+
+            for (int i = n - 1; i >= 0; i--)
+            {
+                ans[i] = v[i][n];
+                for (int j = i + 1; j < n; j++)
+                {
+
+                    ans[i] -= v[i][j] * ans[j];
+                }
+
+                ans[i] = ans[i] / v[i][i];
+            }
+
+            int kk = 1;
+            for (int i = 0; i < n; i++)
+            {
+                int cnt = 0;
+                for (int j = 0; j <= n; j++)
+                {
+                    if (v[i][j] == 0)
+                    {
+
+                        cnt++;
+                    }
+                }
+
+                if (cnt == n + 1)
+                {
+
+                    cout << "infinte solution" << endl;
+                    kk = 0;
+                    break;
+                }
+                else if (cnt == n)
+                {
+
+                    cout << "No solution" << endl;
+                    kk = 0;
+                    break;
+                }
+            }
+            if (kk)
+            {
+                cout << "Solution of the equation:";
+                for (int i = 0; i < n; i++)
+                {
+
+                    cout << ans[i] << " ";
+                }
+                cout << endl;
+            }
+        }
+    }
+}
+
+
 ```
 
 #### Gauss Elimination Input
 ```
-[Add your input format here]
+3
+3
+2 1 -1 8
+-3 -1 2 -11
+-2 1 2 -3
+2
+1 1 2
+2 2 4
+2
+1 1 2
+2 2 5
 ```
 
 #### Gauss Elimination Output
 ```
-[Add your output format here]
+Pivot:2
+2 1 -1 8 
+0 0.5 0.5 1 
+-2 1 2 -3 
+2 1 -1 8 
+0 0.5 0.5 1 
+0 2 1 5 
+Pivot:0.5
+2 1 -1 8 
+0 0.5 0.5 1 
+0 0 -1 1 
+Solution of the equation:2 3 -1 
+Pivot:1
+1 1 2 
+0 0 0 
+infinte solution
+Pivot:1
+1 1 2 
+0 0 1 
+No solution
+
 ```
 
 ---
