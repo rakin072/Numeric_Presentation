@@ -295,16 +295,175 @@ Iteration 2 : 4
 
 #### Secant Code
 ```python
-# Add your code here
+    #include<bits/stdc++.h>
+    using namespace std;
+    const int maxi=1e5;
+    double f(vector<double>&v,double x)
+    {
+        double res=0;
+        int n=v.size();
+        for(int i=0;i<v.size();i++){
+            res+=v[i]*pow(x,n-1-i);
+        }
+        return res;
+    }
+    void secant(vector<double>&v,double a,double b,int r){
+        double fa=f(v,a);
+        double fb=f(v,b);
+        double x=b-(((b-a)/(fb-fa))*fb);
+        double p=a,q=b;
+        int it=0;
+        long long int cnt=0;
+        bool found=true;
+        while(fabs(x-b)>=0.001 && fabs(f(v,x))>=0.001){
+            double fx=f(v,x);
+            a=b,fa=fb;
+            b=x,fb=fx;
+            x=b-(((b-a)/(fb-fa))*fb);
+            it++;
+            cnt++;
+            if((fabs(x-b)<=0.001 && fabs(f(v,x))<=0.001)||fabs(f(v,x)==0))
+            {
+                found=false;
+                x=b-(((b-a)/(fb-fa))*fb);
+                cout<<"Root "<<r<<": "<<x<<endl;
+                cout<<"Search Interval : ["<<p<<", "<<q<<"]"<<endl;
+                cout<<"No of iteration : "<<it<<endl;
+                return;
+            }
+            if(cnt==maxi)break;
+        }
+        if(found)cout<<"No root found"<<endl;
+
+    }
+    int main()
+    {
+        freopen("input.txt","r",stdin);
+        freopen("output.txt","w",stdout);
+        double deg;
+        //cout<<"Enter the degree ";
+        cin>>deg;
+        //cout<<"Enter the Coefficient "<<endl;
+        vector<double>v(deg+1);
+        for(int i=0;i<deg+1;i++){
+            cin>>v[i];
+        }
+        for(int i=0;i<deg+1;i++){
+            if(v[i]!=0 && i<=deg){
+                if(i==0)
+                {
+                    cout<<v[i]<<"x^"<<deg-i;
+                }
+                else if(i!=0)
+                {
+                    if(i==deg && v[i]>0)
+                    {
+                        cout<<"+"<<v[i];
+                    }
+                    else if(i==deg && v[i]<0)
+                    {
+                        cout<<"-"<<v[i];
+                    }
+                    else if(v[i]>0)
+                    {
+                        cout<<"+"<<v[i]<<"x^"<<deg-i;
+                    }
+                    else if(v[i]<0)
+                    {
+                        cout<<v[i]<<"x^"<<deg-i;
+                    }
+                    else{
+                        continue;
+                    }
+                }
+
+            }
+        }
+        cout<<"=0"<<endl;
+        double xmax=0;
+        for(int i=0;i<deg+1;i++){
+            xmax=max(xmax,fabs(v[i]/v[0]));
+        }
+        xmax+=1;
+        double xmin=-xmax;
+        double a=xmin;
+        double b;
+        double s=0.45;
+        int r=1;
+        while(a<xmax){
+            b=a+s;
+            secant(v,a,b,r);
+            r++;
+            a=b;
+        }
+        return 0;
+    }
+
 ```
 
 #### Secant Input
 ```
-[Add your input format here]
+4
+1 0 -5 0 4
 ```
 
 #### Secant Output
-```
-[Add your output format here]
+```1x^4-5x^2+4=0
+Root 1: -2
+Search Interval : [-6, -5.55]
+No of iteration : 10
+Root 2: -2.00002
+Search Interval : [-5.55, -5.1]
+No of iteration : 9
+Root 3: -2
+Search Interval : [-5.1, -4.65]
+No of iteration : 9
+Root 4: -2.00001
+Search Interval : [-4.65, -4.2]
+No of iteration : 8
+No root found
+Root 6: -2
+Search Interval : [-3.75, -3.3]
+No of iteration : 7
+Root 7: -2
+Search Interval : [-3.3, -2.85]
+No of iteration : 6
+No root found
+No root found
+Root 10: -2
+Search Interval : [-1.95, -1.5]
+No of iteration : 5
+Root 11: -1
+Search Interval : [-1.5, -1.05]
+No of iteration : 2
+Root 12: -1.00003
+Search Interval : [-1.05, -0.6]
+No of iteration : 1
+No root found
+No root found
+No root found
+Root 16: 1
+Search Interval : [0.75, 1.2]
+No of iteration : 2
+No root found
+No root found
+No root found
+No root found
+No root found
+Root 22: 2.00002
+Search Interval : [3.45, 3.9]
+No of iteration : 7
+Root 23: 2
+Search Interval : [3.9, 4.35]
+No of iteration : 8
+No root found
+Root 25: 2.00001
+Search Interval : [4.8, 5.25]
+No of iteration : 9
+No root found
+Root 27: 2
+Search Interval : [5.7, 6.15]
+No of iteration : 10
+
 ```
 ---
