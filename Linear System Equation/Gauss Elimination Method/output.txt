@@ -1,0 +1,20 @@
+Pivot:2
+2 1 -1 8 
+0 0.5 0.5 1 
+-2 1 2 -3 
+2 1 -1 8 
+0 0.5 0.5 1 
+0 2 1 5 
+Pivot:0.5
+2 1 -1 8 
+0 0.5 0.5 1 
+0 0 -1 1 
+Solution of the equation:2 3 -1 
+Pivot:1
+1 1 2 
+0 0 0 
+infinte solution
+Pivot:1
+1 1 2 
+0 0 1 
+No solution
