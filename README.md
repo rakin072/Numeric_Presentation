@@ -180,7 +180,7 @@ All methods are **modular and well-categorized**, making the project suitable fo
 [Add your theory content here]
 
 #### False Position Code
-```
+```python
 #include<bits/stdc++.h>
 using namespace std;
 #define f float
