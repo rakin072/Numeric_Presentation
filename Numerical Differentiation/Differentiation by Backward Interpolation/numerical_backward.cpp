@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-
 double polyValue(const vector<double>&coeff,double x)
 {
     double val=0,p=1;
@@ -150,6 +149,7 @@ int main()
         cout<<"Percentage error: "<<err<<" %\n\n";
         outputFile<<"Percentage error: "<<err<<" %\n\n";
     }
+
     inputFile.close();
     outputFile.close();
     return 0;
