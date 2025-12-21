@@ -2114,13 +2114,6 @@ Here:
 
 ---
 
-## Example Iterative Equation (Reference)
-For reference, in iterative methods like the Secant Method, the iterative formula can be written as:
-$$x_2 = x_1 - f(x_1) \cdot \frac{x_1 - x_0}{f(x_1) - f(x_0)}$$
-This illustrates the general idea of *successive approximations*.
-
----
-
 ## Advantages
 - High accuracy with relatively large step sizes
 - Does not require higher-order derivatives
@@ -2358,17 +2351,6 @@ $$
 
 ---
 
-## Example Iterative Equation
-For iterative methods like the Secant Method:
-
-$$
-x_2 = x_1 - f(x_1) \cdot \frac{x_1 - x_0}{f(x_1) - f(x_0)}
-$$
-
-This illustrates *successive approximations*, similar to how parameters are iteratively improved in non-linear fitting.
-
----
-
 ## Advantages
 - Can handle non-linear relationships  
 - Provides a best-fit curve for experimental data  
@@ -2501,17 +2483,6 @@ $$
 $$
 y = a_0 + a_1 x + a_2 x^2 + \dots + a_m x^m
 $$
-
----
-
-## Example Iterative Equation
-For reference, in iterative methods (like the Secant Method):
-
-$$
-x_2 = x_1 - f(x_1) \cdot \frac{x_1 - x_0}{f(x_1) - f(x_0)}
-$$
-
-This shows the idea of *successive approximations*, similar to adjusting coefficients iteratively.
 
 ---
 
@@ -2659,7 +2630,65 @@ y = 3 + 2*x + 1*x^2
 ### Newton Forward Interpolation
 
 #### Newton Forward Interpolation Theory
-[Add your theory content here]
+## Introduction
+The *Newton Forward Interpolation Method* is used to estimate the value of a function $$\(f(x)\)$$ at a point $$\(x\)$$ using *equally spaced data points*.  
+
+It is particularly useful when the value of \(x\) is *near the beginning* of the data set.
+
+---
+
+## Formula
+For a set of equally spaced data points $$\((x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)\)$$, the Newton forward interpolation formula is:
+
+$$
+f(x) = y_0 + p \Delta y_0 + \frac{p(p-1)}{2!} \Delta^2 y_0 + \frac{p(p-1)(p-2)}{3!} \Delta^3 y_0 + \dots + \frac{p(p-1)\dots(p-n+1)}{n!} \Delta^n y_0
+$$
+
+where:
+- $$\(p = \frac{x - x_0}{h}\)$$ 
+- $$\(h = x_{i+1} - x_i\)$$
+- $$\(\Delta y_0, \Delta^2 y_0, \dots\)$$ are *forward differences* 
+
+---
+## Forward Differences
+- First forward difference:
+
+$$
+\Delta y_i = y_{i+1} - y_i
+$$
+
+- Second forward difference:
+
+$$
+\Delta^2 y_i = \Delta y_{i+1} - \Delta y_i
+$$
+
+- Higher-order differences follow the same pattern:
+
+$$
+\Delta^n y_i = \Delta^{n-1} y_{i+1} - \Delta^{n-1} y_i
+$$
+
+---
+
+## Steps of the Method
+1. Arrange data in a *tabular form* with $$\(x\)$$ and $$\(y\)$$ values.  
+2. Compute *forward differences* $$\(\Delta y, \Delta^2 y, \dots\)$$.  
+3. Choose the point $$\(x\)$$ where interpolation is required.  
+4. Calculate $$\(p = \frac{x - x_0}{h}\)$$.  
+5. Apply the Newton forward formula to estimate $$\(f(x)\)$$.
+
+---
+## Advantages
+- Simple and systematic  
+- Suitable for *equally spaced data*  
+- Works well for values near the beginning of the table  
+
+## Disadvantages
+- Only for equally spaced points  
+- Accuracy decreases for points far from $$\(x_0\)$$
+
+---
 
 #### Newton Forward Interpolation Code
 ```python
@@ -2793,7 +2822,68 @@ Error = 1.25
 ### Newton Backward Interpolation
 
 #### Newton Backward Interpolation Theory
-[Add your theory content here]
+## Introduction
+The *Newton Backward Interpolation Method* is used to estimate the value of a function $$\(f(x)\)$$ at a point $$\(x\)$$ using *equally spaced data points*.  
+
+It is especially useful when the value of $$\(x\)$$ is *near the end* of the data set.
+
+---
+
+## Formula
+For equally spaced data points $$\((x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)\)$$, the Newton backward interpolation formula is:
+
+$$
+f(x) = y_n + p \Delta y_{n-1} + \frac{p(p+1)}{2!} \Delta^2 y_{n-2} + \frac{p(p+1)(p+2)}{3!} \Delta^3 y_{n-3} + \dots + \frac{p(p+1)\dots(p+n-1)}{n!} \Delta^n y_0
+$$
+
+where:
+- $$\(p = \frac{x - x_n}{h}\)$$  
+- $$\(h = x_{i+1} - x_i\)$$ (constant spacing) 
+- $$\(\Delta y_{n-1}, \Delta^2 y_{n-2}, \dots\)$$ are *backward differences*  
+
+---
+
+## Backward Differences
+- First backward difference:
+
+$$
+\Delta y_i = y_i - y_{i-1}
+$$
+
+- Second backward difference:
+
+$$
+\Delta^2 y_i = \Delta y_i - \Delta y_{i-1}
+$$
+
+- Higher-order differences follow the same pattern:
+
+$$
+\Delta^n y_i = \Delta^{n-1} y_i - \Delta^{n-1} y_{i-1}
+$$
+
+---
+
+## Steps of the Method
+1. Arrange data in a *table* with $$\(x\)$$ and $$\(y\)$$ values.  
+2. Compute *backward differences* $$\(\Delta y, \Delta^2 y, \dots\)$$.  
+3. Choose the point \(x\) where interpolation is required.  
+4. Calculate $$\(p = \frac{x - x_n}{h}\)$$.  
+5. Apply the Newton backward formula to estimate $$\(f(x)\)$$.
+
+---
+## Advantages
+- Simple and systematic  
+- Suitable for *equally spaced data*  
+- Works well for values near the end of the table  
+
+## Disadvantages
+- Only for equally spaced points  
+- Accuracy decreases for points far from $$\(x_n\)$$
+- Requires calculation of higher-order differences for better precision  
+
+---
+
 
 #### Newton Backward Interpolation Code
 ```python
@@ -2924,7 +3014,69 @@ Numerical Error = 1.395
 
 ### Newton Divided Difference Interpolation
 #### Newton Divided Difference Interpolation Theory
-[Add your theory content here]
+## Introduction
+The *Divided Difference Interpolation Method* is used to construct an *interpolating polynomial* for a set of data points $$\((x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)\)$$ without requiring equally spaced points.  
+It is particularly useful for *unequally spaced data*.
+
+---
+## Divided Differences
+The *divided differences* are defined recursively:
+- Zeroth-order:
+  
+$$
+f[x_i] = y_i
+$$
+
+- First-order:
+
+$$
+f[x_i, x_{i+1}] = \frac{f[x_{i+1}] - f[x_i]}{x_{i+1} - x_i}
+$$
+
+- Second-order:
+
+$$
+f[x_i, x_{i+1}, x_{i+2}] = \frac{f[x_{i+1}, x_{i+2}] - f[x_i, x_{i+1}]}{x_{i+2} - x_i}
+$$
+
+- Higher-order differences follow the same pattern:
+
+$$
+f[x_i, x_{i+1}, \dots, x_{i+k}] = \frac{f[x_{i+1}, \dots, x_{i+k}] - f[x_i, \dots, x_{i+k-1}]}{x_{i+k} - x_i}
+$$
+
+---
+
+## Interpolating Polynomial
+The *Newton's divided difference formula* for the interpolating polynomial is:
+
+$$
+P_n(x) = f[x_0] + (x - x_0)f[x_0, x_1] + (x - x_0)(x - x_1)f[x_0, x_1, x_2] + \dots + (x - x_0)\dots(x - x_{n-1})f[x_0, x_1, \dots, x_n]
+$$
+
+- $$\(f[x_0, x_1, \dots, x_k]\)$$ are the *divided differences*.  
+- The polynomial degree is $$\(n\)$$ for $$\(n+1\)$$ points.
+
+---
+
+## Steps of the Method
+1. Arrange the data points $$\((x_i, y_i)\)$$.  
+2. Compute the *divided differences* in a table.  
+3. Construct the interpolating polynomial $$\(P_n(x)\)$$ using the formula above.  
+4. Evaluate $$\(P_n(x)\)$$ at the desired value of $$\(x\)$$.
+
+---
+
+## Advantages
+- Works for *unequally spaced data*.  
+- Can be used to construct *polynomials of any degree*.  
+- Systematic and easy to implement.
+
+## Disadvantages
+- Higher-degree polynomials may *oscillate*.  
+- Computation becomes complex for *large datasets*.
+
+---
 
 #### Newton Divided Difference Interpolation Code
 ```python
@@ -3052,7 +3204,49 @@ Error = 1.25781
 ### Simpson’s 1/3 Rule
 
 #### Simpson’s 1/3 Theory
-[Add your theory content here]
+## Introduction
+*Simpson's 1/3 Rule* is a numerical method to approximate the *definite integral* of a function $$\(f(x)\)$$ over an interval $$\([a, b]\)$$.  
+It is more accurate than the trapezoidal rule and is based on approximating $$\(f(x)\)$$ using *quadratic polynomials*.
+
+---
+## Formula
+For an *even number of subintervals* $$\(n\)$$ (so that $$\(h = \frac{b-a}{n}\)$$):
+
+$$
+\int_a^b f(x) \, dx \approx \frac{h}{3} \left[ f(x_0) + 4 \sum_{i=1,3,5}^{n-1} f(x_i) + 2 \sum_{i=2,4,6}^{n-2} f(x_i) + f(x_n) \right]
+$$
+
+where:
+- $$\(x_0 = a, x_n = b\)$$ 
+- $$\(h = \frac{b - a}{n}\)$$ is the step size  
+- $$\(n\)$$ must be *even*  
+
+---
+
+## Steps of the Method
+1. Divide the interval $$\([a, b]\)$$ into *n equal subintervals* (n even).  
+2. Compute the function values $$\(f(x_i)\)$$ at each point.  
+3. Apply the Simpson’s 1/3 formula:
+
+$$
+\text{Integral} \approx \frac{h}{3} \Big[f(x_0) + 4(f(x_1) + f(x_3) + \dots) + 2(f(x_2) + f(x_4) + \dots) + f(x_n)\Big]
+$$
+
+4. Sum the terms to get the approximate integral.
+
+---
+
+## Advantages
+- More accurate than trapezoidal rule for smooth functions.  
+- Simple to implement.  
+- Works well for polynomial-like functions.
+
+## Disadvantages
+- Requires an *even number of subintervals*.  
+- Less accurate for highly oscillatory functions.  
+
+---
+
 
 #### Simpson’s 1/3 Code
 ```python
@@ -3103,7 +3297,50 @@ The Result is 0.785398
 ### Simpson’s 3/8 Rule
 
 #### Simpson’s 3/8 Theory
-[Add your theory content here]
+## Introduction
+*Simpson's 3/8 Rule* is a numerical method to approximate the *definite integral* of a function $$\(f(x)\)$$ over an interval $$\([a, b]\)$$.  
+It is based on fitting a *cubic polynomial* through four points at a time and is more accurate than the trapezoidal rule for smooth functions.
+
+---
+
+## Formula
+For a number of subintervals $$\(n\)$$ that is a *multiple of 3* (so that $$\(h = \frac{b-a}{n}\))$$:
+
+$$
+\int_a^b f(x) \, dx \approx \frac{3h}{8} \left[ f(x_0) + 3 \sum_{i=1,2,4,5,\dots}^{n-1} f(x_i) + 2 \sum_{i=3,6,9,\dots}^{n-3} f(x_i) + f(x_n) \right]
+$$
+
+where:
+- $$\(x_0 = a, x_n = b\)$$  
+- $$\(h = \frac{b - a}{n}\)$$ is the step size  
+- $$\(n\)$$ must be a multiple of 3  
+
+---
+
+## Steps of the Method
+1. Divide the interval $$\([a, b]\)$$ into *n equal subintervals* where $$\(n\)$$ is a multiple of 3.  
+2. Compute the function values $$\(f(x_i)\)$$ at each point.  
+3. Apply Simpson’s 3/8 formula:
+
+$$
+\text{Integral} \approx \frac{3h}{8} \Big[f(x_0) + 3(f(x_1)+f(x_2)+f(x_4)+f(x_5)+\dots) + 2(f(x_3)+f(x_6)+\dots) + f(x_n)\Big]
+$$
+
+4. Sum the terms to get the approximate integral.
+
+---
+
+## Advantages
+- More accurate than the trapezoidal rule.  
+- Handles cubic-like functions well.  
+- Can be combined with Simpson 1/3 Rule for composite intervals.
+
+## Disadvantages
+- Number of subintervals must be a *multiple of 3*.  
+- Less accurate for highly oscillatory functions.
+
+---
+
 
 #### Simpson’s 3/8 Code
 ```python
@@ -3156,7 +3393,69 @@ The Result is 0.785398
 ### Differentiation By Forward Interpolation 
 
 #### Differentiation By Forward Interpolation Theory
-[Add your theory content here]
+## Introduction
+*Differentiation by Forward Interpolation* is a numerical technique to approximate the *derivative* of a function $$\(f(x)\)$$ at a point $$\(x\)$$ using *forward differences*.  
+
+It is especially useful when the value of $$\(x\)$$ is *near the beginning* of the data set.
+
+---
+
+## Forward Difference Table
+For equally spaced points $$\((x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)\)$$, compute *forward differences*:
+
+- First-order:
+
+$$
+\Delta y_i = y_{i+1} - y_i
+$$
+
+- Second-order:
+
+$$
+\Delta^2 y_i = \Delta y_{i+1} - \Delta y_i
+$$
+
+- Higher-order differences follow the same pattern:
+
+$$
+\Delta^k y_i = \Delta^{k-1} y_{i+1} - \Delta^{k-1} y_i
+$$
+
+---
+
+## Formula for Derivative
+The derivative at $$\(x_0\)$$ using forward differences is:
+
+$$
+f'(x_0) = \frac{\Delta y_0}{h} - \frac{\Delta^2 y_0}{2h} + \frac{\Delta^3 y_0}{3h} - \dots + (-1)^{n+1} \frac{\Delta^n y_0}{n h}
+$$
+
+where:
+- $$\(h\)$$ is the spacing between points $$(\(x_{i+1} - x_i\))$$ 
+- $$\(\Delta^k y_0\)$$ are the k-th order forward differences  
+
+For *higher accuracy*, more terms can be included.
+
+---
+
+## Steps of the Method
+1. Arrange data points in a table with $$\(x_i\)$$ and $$\(y_i\)$$.  
+2. Compute *forward differences* $$\(\Delta y_i, \Delta^2 y_i, \dots\)$$.  
+3. Apply the forward difference formula to approximate $$\(f'(x_0)\)$$.  
+4. Evaluate the sum to obtain the derivative at the desired point.
+
+---
+
+## Advantages
+- Simple and systematic for *equally spaced data*.  
+- Works well for points near the beginning of the table.  
+- Can be extended to higher-order derivatives.
+
+## Disadvantages
+- Only for *equally spaced points*.  
+- Accuracy decreases for points far from \(x_0\).  
+- Higher-order differences may amplify errors.
+---
 
 #### Differentiation By Forward Interpolation Code
 ```python
@@ -3436,7 +3735,69 @@ Second diff error: 16.7567%
 ### Differentiation By Backward Interpolation 
 
 #### Differentiation By Backward Interpolation Theory
-[Add your theory content here]
+## Introduction
+*Differentiation by Backward Interpolation* is a numerical method to approximate the *derivative* of a function $$\(f(x)\)$$ at a point $$\(x\)$$ using *backward differences*.  
+It is especially useful when the value of $$\(x\)$$ is *near the end* of the data set.
+
+---
+
+## Backward Difference Table
+For equally spaced points $$\((x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)\)$$, compute *backward differences*:
+
+- First-order:
+
+$$
+\nabla y_i = y_i - y_{i-1}
+$$
+
+- Second-order:
+
+$$
+\nabla^2 y_i = \nabla y_i - \nabla y_{i-1}
+$$
+
+- Higher-order differences follow the same pattern:
+
+$$
+\nabla^k y_i = \nabla^{k-1} y_i - \nabla^{k-1} y_{i-1}
+$$
+
+---
+
+## Formula for Derivative
+The derivative at $$\(x_n\)$$ using backward differences is:
+
+$$
+f'(x_n) = \frac{\nabla y_n}{h} + \frac{\nabla^2 y_n}{2h} - \frac{\nabla^3 y_n}{3h} + \dots + (-1)^{n+1} \frac{\nabla^n y_n}{n h}
+$$
+
+where:
+- $$\(h\)$$ is the spacing between points $$(\(x_i - x_{i-1}\))$$
+- $$\(\nabla^k y_n\)$$ are the k-th order backward differences  
+
+For *higher accuracy*, more terms can be included.
+---
+
+## Steps of the Method
+1. Arrange data points in a table with $$\(x_i\)$$ and $$\(y_i\)$$.  
+2. Compute *backward differences* $$\(\nabla y_i, \nabla^2 y_i, \dots\)$$.  
+3. Apply the backward difference formula to approximate $$\(f'(x_n)\)$$.  
+4. Evaluate the sum to obtain the derivative at the desired point.
+
+---
+
+## Advantages
+- Simple and systematic for *equally spaced data*.  
+- Works well for points near the end of the table.  
+- Can be extended to higher-order derivatives.
+
+## Disadvantages
+- Only for *equally spaced points*.  
+- Accuracy decreases for points far from \(x_n\).  
+- Higher-order differences may amplify errors.
+
+---
+
 
 #### Differentiation By Backward Interpolation Code
 ```python
