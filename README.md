@@ -154,21 +154,174 @@ All methods are **modular and well-categorized**, making the project suitable fo
 ### Bisection Method
 
 #### Bisection Theory
-[Add your theory content here]
+##  Introduction
+The *Bisection Method* is a numerical technique used to find a *real root* of a nonlinear equation: f(x) = 0
+It is one of the simplest and most reliable *bracketing methods* in numerical analysis.
+---
+##  Mathematical Foundation
+The method is based on the *Intermediate Value Theorem*.
+### Intermediate Value Theorem
+If a function *f(x)* is:
+- continuous on the interval [a, b]
+- and f(a) · f(b) < 0
+Then at least *one real root exists* in the open interval (a, b).
+---
+## Basic Idea
+1. Select two initial guesses a and b
+2. Ensure that: f(a) · f(b) < 0
+3. Compute the midpoint: c = (a + b) / 2
+4. Check the sign of f(c)
+5. Replace either a or b such that the sign change is maintained
+6. Repeat until the desired accuracy is achieved
+---
+##  Algorithm
+1. Input the function f(x)
+2. Input initial interval [a, b]
+3. If f(a) · f(b) ≥ 0  
+  → Method fails
+4. Compute midpoint: c = (a + b) / 2
+5. If f(c) = 0  
+  → Root found
+6. If f(a) · f(c) < 0  
+  → Set b = c
+7. Else  
+  → Set a = c
+8. Repeat steps 4–7 until stopping condition is satisfied
+---
+##  Stopping Criteria
+The iteration stops when *any one* of the following conditions is met:
+  - |f(c)| < ε  
+  - |b − a| < ε  
+  - Maximum number of iterations reached  
+Where ε is the allowable error (tolerance).
+---
+# Convergence
+  - Type: *Linear Convergence*
+  - Rate: Slow but steady
+  - Convergence is *guaranteed* if the initial condition is satisfied
+---
+##  Advantages
+  -  Very simple to understand and implement
+  -  Guaranteed convergence
+  -  No derivative required
+  -  Stable numerical behavior
+---
+## Disadvantages
+  -  Slow convergence
+  -  Requires an initial interval with sign change
+  -  Not suitable for multiple roots in one interval
+---
 
 #### Bisection Code
 ```python
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+#define ll double
+ll a, b, c, d, e;
+ll f(ll x)
+{
+
+  return a * x * x * x * x + b * x * x * x + c * x * x + d * x + e;
+}
+
+ll tmax()
+{
+  vector<ll> v;
+  v.push_back(abs(b / a));
+  v.push_back(abs(c / a));
+  v.push_back(abs(d / a));
+  v.push_back(abs(e / a));
+  return 1 + *max_element(v.begin(), v.end());
+}
+
+void bisection(ll l, ll r)
+{
+
+  ll mid = (l + r) / 2;
+  ll cnt = 1;
+  while (fabs(mid - l) >= .0001)
+  {
+    cnt++;
+
+    if (f(mid) * f(l) < 0)
+      r = mid;
+    else if (f(mid) * f(r) < 0)
+      l = mid;
+    else if (f(mid) == 0)
+    {
+
+      break;
+    }
+    mid = (l + r) / 2;
+  }
+
+  cout << "root:" << mid << endl;
+  cout << "iteration:" << cnt << endl;
+
+  return;
+}
+
+int main()
+{
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
+  ll T;
+  cout << "Enter number of test cases: ";
+  cout << endl;
+  cin >> T;
+
+  while (T--)
+  {
+    cout << "Enter coefficients a b c d e: " << endl;
+    cin >> a >> b >> c >> d >> e;
+
+    ll r = tmax();
+
+    ll l = -r;
+
+    cout << "Search interval:[" << l << " " << r << "]" << endl;
+    while (l <= r)
+    {
+      ll d = l + 0.5;
+
+      if (f(l) * f(d) < 0)
+      {
+
+        cout << "interval:[" << l << " " << d << "]" << endl;
+
+        bisection(l, d);
+      }
+      l = d;
+    }
+  }
+}
+
 ```
 
 #### Bisection Input
 ```
-[Add your input format here]
+1
+1 -8 -7 58 40
 ```
 
 #### Bisection Output
 ```
-[Add your output format here]
+Enter number of test cases: 
+Enter coefficients a b c d e: 
+Search interval:[-59 59]
+interval:[-2.5 -2]
+root:-2.35675
+iteration:13
+interval:[-1 -0.5]
+root:-0.680969
+iteration:13
+interval:[3 3.5]
+root:3.16656
+iteration:13
+interval:[7.5 8]
+root:7.87115
+iteration:13
+
 ```
 ⬆ [Back to Table of Contents](#toc)
 
@@ -2448,19 +2601,221 @@ Second diff error: 16.7567%
 
 #### Differentiation By Backward Interpolation Code
 ```python
+#include<bits/stdc++.h>
 
+using namespace std;
+double polyValue(const vector<double>&coeff,double x)
+{
+    double val=0,p=1;
+    for(double c:coeff)
+    {
+        val+=c*p;
+        p*=x;
+    }
+    return val;
+}
+
+double trueDerivative(const vector<double>&coeff,double x)
+{
+    double val=0;
+    for(int i=1; i<coeff.size(); i++)
+    {
+        val+=i*coeff[i]*pow(x,i-1);
+    }
+    return val;
+}
+
+vector<vector<double>>buildBackwardDiffTable(const vector<double>&y)
+{
+    int n=y.size();
+    vector<vector<double>>diff(n,vector<double>(n,0));
+    for(int i=0; i<n; i++)diff[i][0]=y[i];
+    for(int j=1; j<n; j++)
+    {
+        for(int i=n-1; i>=j; i--)
+        {
+            diff[i][j]=diff[i][j-1]-diff[i-1][j-1];
+        }
+    }
+    return diff;
+}
+
+double newtonBackwardDerivative5(const vector<vector<double>>&diff,double xn,double h,double xp,int n)
+{
+    double s=(xp-xn)/h;
+    double der=0;
+    if(n>=2) der+=diff[n-1][1];
+    if(n>=3) der+=((2*s+1)/2.0)*diff[n-1][2];
+    if(n>=4) der+=((3*s*s+6*s+2)/6.0)*diff[n-1][3];
+    if(n>=5) der+=((4*s*s*s+18*s*s+22*s+6)/24.0)*diff[n-1][4];
+    if(n>=6) der+=((5*s*s*s*s+40*s*s*s+105*s*s+100*s+24)/120.0)*diff[n-1][5];
+    return der/h;
+}
+
+string polyString(const vector<double>&c)
+{
+    stringstream ss;
+    bool first=true;
+    for(int i=0; i<c.size(); i++)
+    {
+        double a=c[i];
+        if(fabs(a)<1e-12) continue;
+        if(!first) ss<<(a>=0?" + ":" - ");
+        else if(a<0) ss<<"-";
+        if(a<0) a=-a;
+        ss<<fixed<<setprecision(4)<<a;
+        if(i==1) ss<<"x";
+        else if(i>1) ss<<"x^"<<i;
+        first=false;
+    }
+    return ss.str();
+}
+
+int main()
+{
+    ifstream inputFile("Input.txt");
+    ofstream outputFile("Output.txt");
+    if(!inputFile.is_open())
+    {
+        cerr<<"Error opening Input.txt!"<<endl;
+        return 1;
+    }
+    int testCases;
+    inputFile>>testCases;
+    for(int tc=1; tc<=testCases; tc++)
+    {
+        int deg;
+        inputFile>>deg;
+        vector<double>coeff(deg+1);
+        for(int i=0; i<=deg; i++) inputFile>>coeff[i];
+        int n;
+        inputFile>>n;
+        vector<double>x(n),y(n);
+        for(int i=0; i<n; i++) inputFile>>x[i];
+        for(int i=0; i<n; i++) y[i]=polyValue(coeff,x[i]);
+        double xp;
+        inputFile>>xp;
+        double h=x[1]-x[0];
+        auto diff=buildBackwardDiffTable(y);
+        double approx=newtonBackwardDerivative5(diff,x[n-1],h,xp,n);
+        double trueVal=trueDerivative(coeff,xp);
+        double err=fabs((trueVal-approx)/trueVal)*100.0;
+        string poly=polyString(coeff);
+        cout<<"Test Case "<<tc<<"\n";
+        outputFile<<"Test Case "<<tc<<"\n";
+        cout<<"Polynomial: f(x) = "<<poly<<"\n";
+        outputFile<<"Polynomial: f(x) = "<<poly<<"\n";
+        cout<<"Number of points: "<<n<<"\n";
+        outputFile<<"Number of points: "<<n<<"\n";
+        cout<<"x-values: ";
+        outputFile<<"x-values: ";
+        for(int i=0; i<n; i++)
+        {
+            cout<<x[i]<<" ";
+            outputFile<<x[i]<<" ";
+        }
+        cout<<"\n";
+        outputFile<<"\n";
+        cout<<"y-values: ";
+        outputFile<<"y-values: ";
+        for(int i=0; i<n; i++)
+        {
+            cout<<fixed<<setprecision(6)<<y[i]<<" ";
+            outputFile<<fixed<<setprecision(6)<<y[i]<<" ";
+        }
+        cout<<"\n";
+        outputFile<<"\n";
+        cout<<fixed<<setprecision(6);
+        outputFile<<fixed<<setprecision(6);
+        cout<<"Step size (h): "<<h<<"\n";
+        outputFile<<"Step size (h): "<<h<<"\n";
+        cout<<"Differentiation point: "<<xp<<"\n";
+        outputFile<<"Differentiation point: "<<xp<<"\n";
+        cout<<"Backward Difference Table:\n";
+        outputFile<<"Backward Difference Table:\n";
+        for(int i=0; i<n; i++)
+        {
+            cout<<"Row "<<i<<":  ";
+            outputFile<<"Row "<<i<<":  ";
+            for(int j=0; j<=i && j<n; j++)
+            {
+                cout<<setw(10)<<diff[i][j]<<" ";
+                outputFile<<setw(10)<<diff[i][j]<<" ";
+            }
+            cout<<"\n";
+            outputFile<<"\n";
+        }
+        cout<<"Approximate derivative : "<<approx<<"\n";
+        outputFile<<"Approximate derivative : "<<approx<<"\n";
+        cout<<"True derivative: "<<trueVal<<"\n";
+        outputFile<<"True derivative: "<<trueVal<<"\n";
+        cout<<"Percentage error: "<<err<<" %\n\n";
+        outputFile<<"Percentage error: "<<err<<" %\n\n";
+    }
+
+    inputFile.close();
+    outputFile.close();
+    return 0;
+}
 ```
 
 #### Differentiation By Backward Interpolation Input
 ```
+2
 
+3
+1 2 -1 0.5
+6
+0 1 2 3 4 5
+4.5
+
+2
+0 0 1
+7
+0 0.5 1 1.5 2 2.5 3
+2
 ```
 
 #### Differentiation By Backward Interpolation Output
 ```
-⬆ [Back to Table of Contents](#toc)
+Test Case 1
+Polynomial: f(x) = 1.0000 + 2.0000x - 1.0000x^2 + 0.5000x^3
+Number of points: 6
+x-values: 0 1 2 3 4 5 
+y-values: 1.000000 2.500000 5.000000 11.500000 25.000000 48.500000 
+Step size (h): 1.000000
+Differentiation point: 4.500000
+Backward Difference Table:
+Row 0:    1.000000 
+Row 1:    2.500000   1.500000 
+Row 2:    5.000000   2.500000   1.000000 
+Row 3:   11.500000   6.500000   4.000000   3.000000 
+Row 4:   25.000000  13.500000   7.000000   3.000000   0.000000 
+Row 5:   48.500000  23.500000  10.000000   3.000000   0.000000   0.000000 
+Approximate derivative : 23.375000
+True derivative: 23.375000
+Percentage error: 0.000000 %
 
+Test Case 2
+Polynomial: f(x) = 1.0000x^2
+Number of points: 7
+x-values: 0.000000 0.500000 1.000000 1.500000 2.000000 2.500000 3.000000 
+y-values: 0.000000 0.250000 1.000000 2.250000 4.000000 6.250000 9.000000 
+Step size (h): 0.500000
+Differentiation point: 2.000000
+Backward Difference Table:
+Row 0:    0.000000 
+Row 1:    0.250000   0.250000 
+Row 2:    1.000000   0.750000   0.500000 
+Row 3:    2.250000   1.250000   0.500000   0.000000 
+Row 4:    4.000000   1.750000   0.500000   0.000000   0.000000 
+Row 5:    6.250000   2.250000   0.500000   0.000000   0.000000   0.000000 
+Row 6:    9.000000   2.750000   0.500000   0.000000   0.000000   0.000000   0.000000 
+Approximate derivative : 4.000000
+True derivative: 4.000000
+Percentage error: 0.000000 %
 
 ```
+⬆ [Back to Table of Contents](#toc)
 ---
 
