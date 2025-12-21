@@ -33,12 +33,12 @@ All methods are **modular and well-categorized**, making the project suitable fo
 ### 6. Numerical Integration (2 Methods)
 - Simpson’s 1/3 Rule  
 - Simpson’s 3/8 Rule
-- 
+  
 ### 7. Numerical Differentiation (2 Methods)
 - Differentiation by Forward Interpolation  
 - Differentiation by Backward Interpolation  
   
-# Table of Contents
+### Table of Contents <a id="toc"></a>
 - [Solution of Non-Linear Equations](#solution-of-non-linear-equations)
   - [Bisection Method](#bisection-method)
     - [Theory](#bisection-theory)
@@ -170,6 +170,7 @@ All methods are **modular and well-categorized**, making the project suitable fo
 ```
 [Add your output format here]
 ```
+⬆ [Back to Table of Contents](#toc)
 
 ---
 
@@ -280,6 +281,7 @@ Interval 2 : 1.5 2
 Iteration 2 : 4
 
 ```
+⬆ [Back to Table of Contents](#toc)
 
 ### Newton Raphson Method
 
@@ -300,6 +302,7 @@ Iteration 2 : 4
 ```
 [Add your output format here]
 ```
+⬆ [Back to Table of Contents](#toc)
 
 ### Secant Method
 
@@ -480,6 +483,8 @@ Search Interval : [5.7, 6.15]
 No of iteration : 10
 
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ---
 ### Solution of Linear Equations
 
@@ -655,6 +660,7 @@ Pivot:1
 No solution
 
 ```
+⬆ [Back to Table of Contents](#toc)
 
 ---
 
@@ -810,6 +816,7 @@ Solution:
 2.000 3.000 -1.000
 
 ```
+⬆ [Back to Table of Contents](#toc)
 
 ---
 
@@ -1051,6 +1058,7 @@ Upper triangular matrix U:
 The system has no solution
 
 ```
+⬆ [Back to Table of Contents](#toc)
 
 ---
 
@@ -1298,7 +1306,7 @@ Matrix A:
 The system has no solution
 
 ```
-
+⬆ [Back to Table of Contents](#toc)
 
 
 
@@ -1365,6 +1373,8 @@ int main() {
 ```
 y(0.300000) = 1.488017
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ### Solution of Least Square Regression
 
 ### Linear Equation Method
@@ -1438,8 +1448,9 @@ int main()
 ```
 y=1.2+0.6x
 For x=6, y=4.8
-
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ### Transcendental Equation Method
 
 #### Transcendental Equation Theory
@@ -1517,6 +1528,8 @@ Equation: y = 76.5970 + (0.7119)*e^(z/4)
 Estimated y at z: 79.7875
 
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ### Polynomial Equation Method
 
 #### Polynomial Equation Theory
@@ -1648,6 +1661,8 @@ cout << endl;
 Resulting polynomial:
 y = 3 + 2*x + 1*x^2
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ### Solution of Interpolation Method
 ### Newton Forward Interpolation
 
@@ -1780,8 +1795,9 @@ Forward Difference Table:
 Cumulative frequency at 45 = 53.3125
 Students between 40 and 45 = 22.3125
 Error = 1.25
-
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ### Newton Backward Interpolation
 
 #### Newton Backward Interpolation Theory
@@ -1912,6 +1928,8 @@ New Students between 70 and 75 = 15.199
 Numerical Error = 1.395
 
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ### Newton Divided Difference Interpolation
 #### Newton Divided Difference Interpolation Theory
 [Add your theory content here]
@@ -2035,6 +2053,8 @@ Cumulative frequency at 45 = 46.6094
 Students between 40 and 45 = 15.6094
 Error = 1.25781
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ### Numerical Integration
 
 ### Simpson’s 1/3 Rule
@@ -2086,6 +2106,8 @@ int main(){
 ```
 The Result is 0.785398
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ### Simpson’s 3/8 Rule
 
 #### Simpson’s 3/8 Theory
@@ -2135,6 +2157,8 @@ int main(){
 ```
 The Result is 0.785398
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ### Numerical Differentiation
 
 ### Differentiation By Forward Interpolation 
@@ -2156,6 +2180,8 @@ The Result is 0.785398
 ```
 
 ```
+⬆ [Back to Table of Contents](#toc)
+
 ### Differentiation By Backward Interpolation 
 
 #### Differentiation By Backward Interpolation Theory
@@ -2173,6 +2199,8 @@ The Result is 0.785398
 
 #### Differentiation By Backward Interpolation Output
 ```
+⬆ [Back to Table of Contents](#toc)
+
 
 ```
 ---
