@@ -426,7 +426,7 @@ This method is a **bracketing method** and combines the **reliability of the Bis
 
 
 
-<img src="Images/Screenshot%202025-12-22%20043936.png" alt="False Position Method" width="400">
+<img src="Images/Screenshot2025-12-22045336.png" alt="False Position Method" width="400">
 
 ---
 ## Initial Interval
