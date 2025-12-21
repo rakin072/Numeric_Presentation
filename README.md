@@ -2147,7 +2147,7 @@ y(0.300000) = 1.488017
 
 #### Linear Equation Theory
 ## Introduction
-The *Least Squares Method* finds the *best-fitting line* for a set of data points \((x_i, y_i)\).  
+The *Least Squares Method* finds the *best-fitting line* for a set of data points $$\((x_i, y_i)\)$$.  
 The line has the form:
 
 $$
