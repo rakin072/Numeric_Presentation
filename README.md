@@ -495,9 +495,8 @@ Iteration 2 : 4
 ### Newton Raphson Method
 
 #### Newton Raphson Theory
-# Newton–Raphson Method (Numerical Analysis)
 
-## Newton–Raphson Theory
+## Introduction
 The *Newton–Raphson Method* is a numerical technique used to determine the root of a *non-linear equation* of the form:
 
 f(x) = 0
@@ -806,9 +805,8 @@ Number of the iterations: 4
 ### Secant Method
 
 #### Secant Theory
-#  Secant Method (Numerical Analysis)
 
-##  Secant Method Theory
+##  Introduction
 The *Secant Method* is an *open numerical method* used to find the root of a nonlinear equation: f(x) = 0
 Unlike the *Newton–Raphson Method, the Secant Method **does not require the derivative* of the function.  
 Instead, it uses *two initial approximations* to construct a secant line and iteratively find the root.
@@ -1052,7 +1050,7 @@ No of iteration : 10
 ### Gauss Elimination Method
 
 #### Gauss Elimination Theory
-# Gauss Elimination Method
+
 ## Introduction
 The *Gauss Elimination Method* is a systematic procedure for solving a system of linear equations of the form: Ax = b
 where:
@@ -1270,7 +1268,6 @@ No solution
 ### Gauss Jordan Elimination Method
 
 #### Gauss Jordan Theory
-# Gauss-Jordan Elimination Method
 ## Introduction
 The *Gauss-Jordan Elimination Method* is an extension of the Gauss Elimination Method.  
 It is used to solve a system of linear equations of the form: Ax = b
@@ -1480,7 +1477,67 @@ Solution:
 ### LU Decomposition Method
 
 #### LU Decomposition Theory
-[Add your theory content here]
+## Introduction
+The *LU Decomposition Method* is a numerical technique used to solve a system of linear equations of the form: Ax = b
+where:
+- A is a square coefficient matrix
+- x is the vector of unknowns
+- b is the constant vector
+The method decomposes A into two matrices:A = L * U
+where:
+- L is a *lower triangular matrix* with unit or non-unit diagonal
+- U is an *upper triangular matrix*
+This decomposition allows the system to be solved using *forward and backward substitution*.
+
+---
+## Steps of LU Decomposition
+### Step 1: Decompose Matrix A
+1. Factor the matrix A into L and U such that: A = L * U
+where:
+- L is a *lower triangular matrix* with unit or non-unit diagonal
+- U is an *upper triangular matrix*
+This decomposition allows the system to be solved using *forward and backward substitution*.
+
+---
+## Steps of LU Decomposition
+### Step 1: Decompose Matrix A
+1. Factor the matrix A into L and U such that:A = L * U
+2. Use L has unit diagonal or U has unit diagonal to perform decomposition.
+
+---
+### Step 2: Forward Substitution
+Solve the intermediate system: L * y = b
+for y using forward substitution:
+$$y_1 = \frac{b_1}{l_{11}}$$
+$$y_i = \frac{1}{l_{ii}} \left( b_i - \sum_{j=1}^{i-1} l_{ij} y_j \right), \quad i = 2, 3, \dots, n$$
+### Step 3: Backward Substitution
+Solve the system: U * x = y
+for x using backward substitution:
+$$x_n = \frac{y_n}{u_{nn}}$$
+$$x_i = \frac{1}{u_{ii}} \left( y_i - \sum_{j=i+1}^{n} u_{ij} x_j \right), \quad i = n-1, n-2, \dots, 1$$
+---
+## Algorithm Steps
+1. Decompose the matrix A into L and U.
+2. Solve L * y = b using forward substitution to find y.
+3. Solve U * x = y using backward substitution to find x.
+4. Return x as the solution vector.
+
+---
+## Conditions for Applicability
+- The coefficient matrix A must be *square*.
+- A must be *non-singular* (determinant ≠ 0).
+- Partial pivoting may be necessary for numerical stability.
+
+---
+## Advantages
+- Efficient for solving multiple systems with the same A and different b.
+- Reduces computational effort compared to standard Gaussian elimination.
+
+---
+## Disadvantages
+- Only applicable to square matrices.
+- Sensitive to round-off errors without pivoting.
+---
 
 #### LU Decomposition Code
 ```python
