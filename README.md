@@ -599,6 +599,7 @@ f(x) = 0
 Unlike the *Secant* or *False Position* methods, the Newton–Raphson Method *requires the derivative* of the function to compute successive approximations.  
 It uses a *single initial guess* that should be reasonably close to the actual root.
 
+<img src="Images/Screenshot%202025-12-22%20045820.png" alt="False Position Method" width="400">
 ---
 
 ## Initial Guess
