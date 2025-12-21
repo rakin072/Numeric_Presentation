@@ -1,3 +1,43 @@
+# Project Introduction
+
+This project implements **19 classical Numerical Methods in C++** with support for **multiple test cases**, **file-based input**, and **file/terminal output**.
+All methods are **modular and well-categorized**, making the project suitable for academic learning and practical implementation.
+
+## Classification of Implemented Numerical Methods
+
+### 1. Solution of Non-Linear Equations (4 Methods)
+- Bisection Method  
+- False Position (Regula Falsi) Method  
+- Newton–Raphson Method  
+- Secant Method  
+
+### 2. Solution of Linear Equations (4 Methods)
+- Gauss Elimination Method  
+- Gauss–Jordan Elimination Method  
+- LU Decomposition (Doolittle’s Method)  
+- Matrix Inversion Method  
+
+### 3. Differential Equation Solving (1 Method)
+- Runge–Kutta 4th Order Method  
+
+### 4. Interpolation Methods (3 Methods)
+- Newton Forward Interpolation  
+- Newton Backward Interpolation  
+- Newton Divided Difference Interpolation  
+
+### 5. Numerical Differentiation (2 Methods)
+- Differentiation by Forward Interpolation  
+- Differentiation by Backward Interpolation  
+
+### 6. Curve Fitting and Regression (3 Methods)
+- Linear Regression  
+- Polynomial Regression  
+- Transcendental Regression  
+
+### 7. Numerical Integration (2 Methods)
+- Simpson’s 1/3 Rule  
+- Simpson’s 3/8 Rule
+  
 # Table of Contents
 - [Solution of Non-Linear Equations](#solution-of-non-linear-equations)
   - [Bisection Method](#bisection-method)
