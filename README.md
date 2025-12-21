@@ -231,7 +231,7 @@ Numeric_Presentation/
     │   ├── input.txt
     │   └── output.txt
     └── Simpson's 3 by 8 Rule/
-        ├── Simpson's 1 by 3 rule.cpp
+        ├── Simpson's 3 by 8 rule.cpp
         ├── input.txt
         └── output.txt
 ```
