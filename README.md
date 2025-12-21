@@ -149,7 +149,8 @@ All methods are **modular and well-categorized**, making the project suitable fo
           - [Input](#differentiation-by-backward-interpolation-input)
           - [Output](#differentiation-by-backward-interpolation-output)     
 ---
-###Project Structure 
+```text
+### Project Structure 
 
 Numeric_Presentation/
 │
@@ -233,7 +234,7 @@ Numeric_Presentation/
         ├── Simpson's 1 by 3 rule.cpp
         ├── input.txt
         └── output.txt
-
+```
 ---
 ### Solution of Non-Linear Equations
 
