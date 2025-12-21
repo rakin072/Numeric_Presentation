@@ -360,7 +360,7 @@ The iteration stops when **any one** of the following conditions is met: |f(xₙ
 or |xₙ − xₙ₋₁| < ε
 or when the maximum number of iterations is reached.
 Here, ε denotes the allowable error (tolerance).
-## 🔹 Algorithm Steps
+##  Algorithm Steps
 1. Choose initial interval `[a, b]`
 2. Check if `f(a) · f(b) < 0`
    - If not, the method fails
@@ -806,8 +806,70 @@ Number of the iterations: 4
 ### Secant Method
 
 #### Secant Theory
-[Add your theory content here]
+#  Secant Method (Numerical Analysis)
 
+##  Secant Method Theory
+The *Secant Method* is an *open numerical method* used to find the root of a nonlinear equation: f(x) = 0
+Unlike the *Newton–Raphson Method, the Secant Method **does not require the derivative* of the function.  
+Instead, it uses *two initial approximations* to construct a secant line and iteratively find the root.
+
+---
+##  Initial Approximations
+Let the two initial guesses be: x₀ and x₁
+These should be *reasonably close* to the actual root to ensure convergence.
+
+---
+##  Iterative Formula
+The next approximation of the root is computed using the *secant line formula*:
+    xₙ₊₁ = xₙ − f(xₙ) * (xₙ − xₙ₋₁) / (f(xₙ) − f(xₙ₋₁))
+Here:
+- xₙ₊₁ = next approximation
+- xₙ, xₙ₋₁ = current and previous approximations
+- f(xₙ), f(xₙ₋₁) = function values at these points
+
+---
+##  Iteration Process
+1. Compute xₙ₊₁ using the formula above
+2. Update:
+    xₙ₋₁ ← xₙ
+    xₙ ← xₙ₊₁
+3. Repeat until stopping criteria are satisfied
+
+---
+##  Stopping Criteria
+The iteration stops when *any one* of the following conditions is met: |xₙ₊₁ − xₙ| < ε or |f(xₙ₊₁)| < ε
+or the maximum number of iterations is reached.  
+Here, ε denotes the allowable error (tolerance).
+
+---
+##  Algorithm Steps
+1. Choose initial guesses x₀ and x₁
+2. Compute the next approximation: x₂ = x₁ − f(x₁) * (x₁ − x₀) / (f(x₁) − f(x₀))
+3.Update previous values:
+  x₀ ← x₁
+  x₁ ← x₂
+4. Check convergence:
+  - If |xₙ₊₁ − xₙ| < ε *or*
+  - If |f(xₙ₊₁)| < ε
+5. If satisfied, *stop*
+6. Otherwise, repeat steps 2–4
+---
+##  Convergence Characteristics
+  - Convergence is generally *faster than Bisection*, but slower than Newton–Raphson
+  - May fail if initial guesses are poorly chosen or function is not well-behaved
+
+---
+##  Advantages
+-  Does not require derivative of f(x)
+-  Faster than Bisection Method
+-  Simple and easy to implement
+---
+##  Disadvantages
+-  Requires two initial guesses
+-  Convergence is not guaranteed
+-  Slower than Newton–Raphson if derivative is available
+
+---
 #### Secant Code
 ```python
     #include<bits/stdc++.h>
@@ -990,7 +1052,48 @@ No of iteration : 10
 ### Gauss Elimination Method
 
 #### Gauss Elimination Theory
-[Add your theory content here]
+# Gauss Elimination Method
+## Introduction
+The *Gauss Elimination Method* is a systematic procedure for solving a system of linear equations of the form: Ax = b
+where:
+- A is the coefficient matrix
+- x is the column vector of unknowns
+- b is the constant vector
+It transforms the system into an *upper triangular form* and then solves it using *back-substitution*.
+
+---
+## Steps of Gauss Elimination Method
+### Step 1: Forward Elimination
+1. Transform the augmented matrix [A|b] into an *upper triangular matrix*.
+2. For each pivot row:
+   - Make the elements below the pivot zero using row operations: Rj → Rj - (a_jk / a_kk) * Rk 
+   - Where Rk is the pivot row and Rj is the row being eliminated.
+---
+### Step 2: Back Substitution
+1. After obtaining the upper triangular matrix, solve for the unknowns starting from the last row.
+2. Formula for back substitution:
+     x_n = b_n / a_nn
+     x_i = (b_i - Σ a_ij * x_j) / a_ii
+where the sum is over j = i+1 to n.
+---
+## Algorithm Steps
+1. Form the augmented matrix [A|b].
+2. Apply forward elimination to convert [A|b] to upper triangular form.
+3. Apply back substitution to find the solution vector x.
+4. Check for singularity: If any pivot element a_kk = 0, the method fails.
+---
+## Conditions for Applicability
+- The coefficient matrix A must be *non-singular* (determinant ≠ 0).
+- Partial or complete pivoting may be required if pivot elements are zero or very small to avoid division errors.
+---
+## Advantages
+- Simple and systematic procedure
+- Can be applied to any system of linear equations
+---
+## Disadvantages
+- Sensitive to round-off errors
+- Pivoting is required to improve stability
+---
 
 #### Gauss Elimination Code
 ```python
@@ -1166,7 +1269,60 @@ No solution
 ### Gauss Jordan Elimination Method
 
 #### Gauss Jordan Theory
-[Add your theory content here]
+# Gauss-Jordan Elimination Method
+## Introduction
+The *Gauss-Jordan Elimination Method* is an extension of the Gauss Elimination Method.  
+It is used to solve a system of linear equations of the form: Ax = b
+The method transforms the augmented matrix [A|b] into a *reduced row echelon form (RREF)*, making the solution directly readable without the need for back-substitution.
+
+---
+## Steps of Gauss-Jordan Elimination
+### Step 1: Form the Augmented Matrix
+Write the system of linear equations in the augmented matrix form [A|b].
+
+---
+### Step 2: Forward Elimination
+1. Select a pivot element in the current row.
+2. Make the pivot element 1 by dividing the entire row by the pivot value.
+3. Make all elements *below the pivot zero* using row operations: $$R_j \leftarrow R_j - a_{jk} R_k$$
+where Rk is the pivot row and Rj is the row being eliminated.
+---
+### Step 3: Backward Elimination
+1. After forward elimination, make all elements *above the pivot zero*.
+2. Apply row operations: $$R_i \leftarrow R_i - a_{ij} R_j$$
+   where Rj is the pivot row and Ri is a row above it.
+3. Repeat for all pivot positions until the matrix is in *reduced row echelon form*.
+---
+### Step 4: Read the Solution
+Once the augmented matrix is in RREF, the solution vector x can be directly read from the last column:
+$$x_i = b_i, \quad i = 1, 2, \dots, n$$
+---
+
+## Algorithm Steps
+1. Form augmented matrix [A|b].
+2. For each pivot row:
+   - Make pivot element 1.
+   - Make all other elements in the pivot column 0 using row operations.
+3. Repeat until the entire matrix is in reduced row echelon form.
+4. Read the solution directly from the augmented column.
+5. Check for singularity or inconsistency:  
+   - If a row becomes [0 0 ... 0 | c] with c ≠ 0, the system has no solution.  
+   - If a row becomes [0 0 ... 0 | 0], the system has infinitely many solutions.
+---
+## Conditions for Applicability
+- The coefficient matrix A must not be singular for a unique solution.
+- Pivoting may be required if pivot elements are zero or very small to avoid division errors.
+---
+## Advantages
+- Provides *direct solution* without back-substitution.
+- Can determine if the system has no solution or infinitely many solutions.
+- Systematic and easy to implement for small to medium-sized systems.
+---
+## Disadvantages
+- Computationally intensive for very large systems.
+- Sensitive to round-off errors.
+- Requires careful pivot selection to maintain numerical stability.
+---
 
 #### Gauss Jordan Code
 ```python
