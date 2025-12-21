@@ -154,9 +154,11 @@ All methods are **modular and well-categorized**, making the project suitable fo
 ### Bisection Method
 
 #### Bisection Theory
+---
 ##  Introduction
 The Bisection Method is a numerical technique used to find a real root of a nonlinear equation: f(x) = 0
 It is one of the simplest and most reliable bracketing methods in numerical analysis.
+---
 ---
 ##  Mathematical Foundation
 The method is based on the *Intermediate Value Theorem*.
