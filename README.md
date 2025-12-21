@@ -2102,15 +2102,15 @@ $$k_4 = h \cdot f(x_n + h, y_n + k_3)$$
 $$y_{n+1} = y_n + \frac{1}{6} (k_1 + 2k_2 + 2k_3 + k_4)$$
 
 Here:
-- \(x_n, y_n\) are the current values
-- \(y_{n+1}\) is the next approximate value
+- $$\(x_n, y_n\)$$ are the current values
+- $$\(y_{n+1}\)$$ is the next approximate value
 ---
 
 ## Iterative Procedure
-1. Choose initial values \(x_0, y_0\) and step size \(h\).
-2. Compute intermediate slopes \(k_1, k_2, k_3, k_4\) using the formulas above.
-3. Compute \(y_{n+1}\) using the RK4 formula.
-4. Update \(x_{n+1} = x_n + h\) and repeat until the desired \(x\) is reached.
+1. Choose initial values $$\(x_0, y_0\)$$ and step size $$\(h\)$$.
+2. Compute intermediate slopes $$\(k_1, k_2, k_3, k_4\)$$ using the formulas above.
+3. Compute $$\(y_{n+1}\)$$ using the RK4 formula.
+4. Update $$\(x_{n+1} = x_n + h\)$$ and repeat until the desired $$\(x\)$$ is reached.
 
 ---
 
@@ -2129,8 +2129,8 @@ This illustrates the general idea of *successive approximations*.
 ---
 
 ## Disadvantages
-- Requires multiple evaluations of \(f(x, y)\) per step
-- Step size \(h\) must be chosen carefully
+- Requires multiple evaluations of $$\(f(x, y)\)$$ per step
+- Step size $$\(h\)$$ must be chosen carefully
 
 ---
 
@@ -2325,7 +2325,60 @@ For x=6, y=4.8
 ### Transcendental Equation Method
 
 #### Transcendental Equation Theory
-[Add your theory content here]
+## Introduction
+The *Least Squares Method* can also be used to fit a model when the data follows a *transcendental relationship* (non-linear equations like exponential, logarithmic, or trigonometric forms).  
+
+For a general model:
+
+$$
+y = f(x, a, b, \dots)
+$$
+
+where \(a, b, \dots\) are unknown parameters, the goal is to minimize the sum of squared errors:
+
+$$
+S = \sum_{i=1}^{n} \left[ y_i - f(x_i, a, b, \dots) \right]^2
+$$
+
+---
+
+## Steps of the Method
+
+1. *Choose a model* for the data, e.g.,  
+
+   - Exponential: $$\(y = a e^{b x}\)$$ 
+   - Logarithmic: $$\(y = a + b \ln x\)$$ 
+   - Trigonometric: $$\(y = a \sin(b x)\)$$
+
+2. *Transform the equation* (if needed) to a linear form using logarithms or other transformations.  
+
+3. *Compute the sums* of transformed variables to solve for unknown parameters $$\(a, b, \dots\)$$.  
+
+4. *Form the fitted equation* with calculated parameters.
+
+---
+
+## Example Iterative Equation
+For iterative methods like the Secant Method:
+
+$$
+x_2 = x_1 - f(x_1) \cdot \frac{x_1 - x_0}{f(x_1) - f(x_0)}
+$$
+
+This illustrates *successive approximations*, similar to how parameters are iteratively improved in non-linear fitting.
+
+---
+
+## Advantages
+- Can handle non-linear relationships  
+- Provides a best-fit curve for experimental data  
+
+## Disadvantages
+- More complex than linear regression  
+- Sensitive to initial guesses or transformations  
+
+---
+
 
 #### Transcendental Equation Code
 ```python
@@ -2404,7 +2457,75 @@ Estimated y at z: 79.7875
 ### Polynomial Equation Method
 
 #### Polynomial Equation Theory
-[Add your theory content here]
+## Introduction
+The *Least Squares Polynomial Regression* method fits a *polynomial* of degree $$\(m\)$$ to a set of data points $$\((x_i, y_i)\)$$ by minimizing the sum of squared errors:
+
+$$
+S = \sum_{i=1}^{n} \left[ y_i - (a_0 + a_1 x_i + a_2 x_i^2 + \dots + a_m x_i^m) \right]^2
+$$
+
+The polynomial equation is:
+
+$$
+y = a_0 + a_1 x + a_2 x^2 + \dots + a_m x^m
+$$
+
+where $$\(a_0, a_1, \dots, a_m\)$$ are unknown coefficients to be determined.
+
+---
+
+## Steps of the Method
+
+1. *Choose the degree* of the polynomial \(m\).  
+2. *Form the normal equations* using sums of powers of \(x_i\) and products with \(y_i\):
+
+$$
+\sum y_i = n a_0 + a_1 \sum x_i + a_2 \sum x_i^2 + \dots + a_m \sum x_i^m
+$$
+
+$$
+\sum x_i y_i = a_0 \sum x_i + a_1 \sum x_i^2 + a_2 \sum x_i^3 + \dots + a_m \sum x_i^{m+1}
+$$
+
+$$
+\vdots
+$$
+
+$$
+\sum x_i^m y_i = a_0 \sum x_i^m + a_1 \sum x_i^{m+1} + \dots + a_m \sum x_i^{2m}
+$$
+
+3. *Solve the system of equations* for coefficients \(a_0, a_1, \dots, a_m\) using methods like *Gaussian elimination* or *matrix inversion*.  
+4. *Form the polynomial* with the calculated coefficients:
+
+$$
+y = a_0 + a_1 x + a_2 x^2 + \dots + a_m x^m
+$$
+
+---
+
+## Example Iterative Equation
+For reference, in iterative methods (like the Secant Method):
+
+$$
+x_2 = x_1 - f(x_1) \cdot \frac{x_1 - x_0}{f(x_1) - f(x_0)}
+$$
+
+This shows the idea of *successive approximations*, similar to adjusting coefficients iteratively.
+
+---
+
+## Advantages
+- Can fit data with a *non-linear trend*.  
+- Flexible: can increase degree for better fitting.  
+
+## Disadvantages
+- Higher-degree polynomials can *overfit* data.  
+- Requires solving multiple simultaneous equations.  
+
+
+---
+
 
 #### Polynomial Equation Code
 ```python
