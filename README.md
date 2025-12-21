@@ -1797,7 +1797,7 @@ The method computes the *inverse of the matrix A*, denoted as A⁻¹, and then f
    - Gauss-Jordan elimination
    - Adjoint method
    - LU decomposition (optional for large systems)
-   - 
+  
 ---
 ### Step 2: Multiply by b
 Once the inverse is obtained, compute the solution vector: x = A⁻¹ * b
@@ -1809,12 +1809,6 @@ Optionally, check the solution by substituting x back into the original system: 
 The equation should hold within numerical tolerance.
 
 ---
-## Example Iterative Formula (For Nonlinear Equations)
-For reference, in iterative methods like the Secant Method, the formula is: $$x_2 = x_1 - f(x_1) \cdot \frac{x_1 - x_0}{f(x_1) - f(x_0)}$$
-This is similar in spirit to computing successive approximations.
-
----
-
 ## Algorithm Steps
 1. Form the coefficient matrix A and constant vector b.
 2. Check if A is square and non-singular.
@@ -2091,7 +2085,53 @@ The system has no solution
 ### Runge Kutta Method
 
 #### Runge Kutta Theory
-[Add your theory content here]
+## Introduction
+The *4th-order Runge-Kutta Method (RK4)* is a widely used numerical technique to solve ordinary differential equations (ODEs) of the form:
+$$\frac{dy}{dx} = f(x, y), \quad y(x_0) = y_0$$
+It approximates the solution with high accuracy by computing *four intermediate slopes* at each step.
+
+---
+
+## RK4 Formulas
+For a step size \(h\), the next value \(y_{n+1}\) is computed as:
+$$k_1 = h \cdot f(x_n, y_n)$$
+$$k_2 = h \cdot f\left(x_n + \frac{h}{2}, y_n + \frac{k_1}{2}\right)$$
+$$k_3 = h \cdot f\left(x_n + \frac{h}{2}, y_n + \frac{k_2}{2}\right)$$
+$$k_4 = h \cdot f(x_n + h, y_n + k_3)$$
+$$y_{n+1} = y_n + \frac{1}{6} (k_1 + 2k_2 + 2k_3 + k_4)$$
+
+Here:
+- \(x_n, y_n\) are the current values
+- \(y_{n+1}\) is the next approximate value
+---
+
+## Iterative Procedure
+1. Choose initial values \(x_0, y_0\) and step size \(h\).
+2. Compute intermediate slopes \(k_1, k_2, k_3, k_4\) using the formulas above.
+3. Compute \(y_{n+1}\) using the RK4 formula.
+4. Update \(x_{n+1} = x_n + h\) and repeat until the desired \(x\) is reached.
+
+---
+
+## Example Iterative Equation (Reference)
+For reference, in iterative methods like the Secant Method, the iterative formula can be written as:
+$$x_2 = x_1 - f(x_1) \cdot \frac{x_1 - x_0}{f(x_1) - f(x_0)}$$
+This illustrates the general idea of *successive approximations*.
+
+---
+
+## Advantages
+- High accuracy with relatively large step sizes
+- Does not require higher-order derivatives
+- Widely applicable to ordinary differential equations
+
+---
+
+## Disadvantages
+- Requires multiple evaluations of \(f(x, y)\) per step
+- Step size \(h\) must be chosen carefully
+
+---
 
 #### Runge Kutta Code
 ```python
