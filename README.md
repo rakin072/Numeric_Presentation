@@ -1515,6 +1515,7 @@ Solve the system: U * x = y
 for x using backward substitution:
 $$x_n = \frac{y_n}{u_{nn}}$$
 $$x_i = \frac{1}{u_{ii}} \left( y_i - \sum_{j=i+1}^{n} u_{ij} x_j \right), \quad i = n-1, n-2, \dots, 1$$
+
 ---
 ## Algorithm Steps
 1. Decompose the matrix A into L and U.
@@ -1779,7 +1780,67 @@ The system has no solution
 ### Matrix Inversion
 
 #### Matrix Inversion Theory
-[Add your theory content here]
+## Introduction
+The *Inverse Matrix Method* is a technique to solve a system of linear equations of the form: Ax = b
+where:
+- A is a square coefficient matrix
+- x is the vector of unknowns
+- b is the constant vector
+The method computes the *inverse of the matrix A*, denoted as A⁻¹, and then finds the solution vector using: x = A⁻¹ * b
+
+---
+
+## Steps of the Inverse Matrix Method
+### Step 1: Compute the Inverse
+1. Check that A is *square* and *non-singular* (determinant ≠ 0).
+2. Compute the inverse A⁻¹ using:
+   - Gauss-Jordan elimination
+   - Adjoint method
+   - LU decomposition (optional for large systems)
+   - 
+---
+### Step 2: Multiply by b
+Once the inverse is obtained, compute the solution vector: x = A⁻¹ * b
+This yields the values of unknowns directly.
+
+---
+### Step 3: Verify the Solution
+Optionally, check the solution by substituting x back into the original system: Ax = b
+The equation should hold within numerical tolerance.
+
+---
+## Example Iterative Formula (For Nonlinear Equations)
+For reference, in iterative methods like the Secant Method, the formula is: $$x_2 = x_1 - f(x_1) \cdot \frac{x_1 - x_0}{f(x_1) - f(x_0)}$$
+This is similar in spirit to computing successive approximations.
+
+---
+
+## Algorithm Steps
+1. Form the coefficient matrix A and constant vector b.
+2. Check if A is square and non-singular.
+3. Compute A⁻¹ using an appropriate method.
+4. Compute the solution vector: x = A⁻¹ * b.
+5. Verify the solution if needed.
+
+---
+
+## Conditions for Applicability
+- A must be a *square matrix*.
+- A must be *non-singular* (determinant ≠ 0).
+
+---
+
+## Advantages
+- Direct solution without iterative steps.
+- Conceptually simple.
+
+---
+
+## Disadvantages
+- Sensitive to round-off errors.
+- Requires A to be non-singular.
+  
+---
 
 #### Matrix Inversion Code
 ```python
