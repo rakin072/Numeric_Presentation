@@ -37,7 +37,96 @@ All methods are **modular and well-categorized**, making the project suitable fo
 ### 7. Numerical Differentiation (2 Methods)
 - Differentiation by Forward Interpolation  
 - Differentiation by Backward Interpolation  
-  
+---
+### Project Structure
+```text
+
+Numeric_Presentation/
+│
+├──  Least Square Regression
+│   ├── Linear Method/
+│   │   ├── Linear.cpp
+│   │   ├── input.txt
+│   │   └── output.txt
+│   ├── Polynomial Method/
+│   │   ├── polynomial.cpp
+│   │   ├── input.txt
+│   │   └── output.txt
+│   └── Transcendental Method/
+│       ├── transcendental.cpp
+│       ├── input.txt
+│       └── output.txt
+│
+├──  InterPolation Methods
+│   ├── Backward/
+│   │   ├── backward.cpp
+│   │   ├── input.txt
+│   │   └── output.txt
+│   ├── Newton Divided Difference/
+│   │   ├── Newton Divided Difference.cpp
+│   │   ├── input.txt
+│   │   └── output.txt
+│   └── Newton Forward Interpolation Method/
+│       ├── Newton Forward Interpolation.cpp
+│       ├── input.txt
+│       └── output.txt
+│
+├──  Linear System Equation
+│   ├── Gauss Elimination Method/
+│   │   ├── gauss_elemination.cpp
+│   │   ├── input.txt
+│   │   └── output.txt
+│   ├── Gauss Jordan Method/
+│   │   ├── Gauss Jordan.cpp
+│   │   ├── input.txt
+│   │   └── output.txt
+│   ├── Inverse Method/
+│   │   ├── Inverse.cpp
+│   │   ├── input.txt
+│   │   └── output.txt
+│   └── LU Decomposition Method/
+│        ├── LU_decomposition.cpp
+|        ├── input.txt
+│        └── output.txt
+├── Non-Linear System
+│   ├── Bisection Method/
+│   │   ├── bisection.cpp
+│   │   ├── input.txt
+│   │   └── output.txt
+│   ├── False Position/
+│   │   ├── False_position.cpp
+│   │   ├── input.txt
+│   │   └── output.txt
+│   ├── Newton Raphson Method/
+│   │   ├── newton_raphson.cpp
+│   │   ├── input.txt
+│   │   └── output.txt
+│   └── Secant Method/
+│       ├── Secant.cpp
+│       ├── input.txt
+│       └── output.txt
+│
+├──  Numerical Differentiation
+│   ├── Differentiation by Backward Interpolation/
+│   │   ├── numerical_backward.cpp
+│   │   ├── input.txt
+│   │   └── Output.txt
+│   └── Differentiation by Forward Interpolation/
+│       ├── Numerical_forward.cpp
+│       ├── input.txt
+│       └── output.txt
+│
+└──  Numerical Integration
+    ├── Simpson's 1 by 3 Rule/
+    │   ├── Simpson's 1 by 3 rule.cpp
+    │   ├── input.txt
+    │   └── output.txt
+    └── Simpson's 3 by 8 Rule/
+        ├── Simpson's 3 by 8 rule.cpp
+        ├── input.txt
+        └── output.txt
+```
+---  
 ### Table of Contents <a id="toc"></a>
 - [Solution of Non-Linear Equations](#solution-of-non-linear-equations)
   - [Bisection Method](#bisection-method)
@@ -148,93 +237,7 @@ All methods are **modular and well-categorized**, making the project suitable fo
           - [Code](#differentiation-by-backward-interpolation-code)
           - [Input](#differentiation-by-backward-interpolation-input)
           - [Output](#differentiation-by-backward-interpolation-output)     
----
-```text
-### Project Structure 
 
-Numeric_Presentation/
-│
-├──  Least Square Regression
-│   ├── Linear Method/
-│   │   ├── Linear.cpp
-│   │   ├── input.txt
-│   │   └── output.txt
-│   ├── Polynomial Method/
-│   │   ├── polynomial.cpp
-│   │   ├── input.txt
-│   │   └── output.txt
-│   └── Transcendental Method/
-│       ├── transcendental.cpp
-│       ├── input.txt
-│       └── output.txt
-│
-├──  InterPolation Methods
-│   ├── Backward/
-│   │   ├── backward.cpp
-│   │   ├── input.txt
-│   │   └── output.txt
-│   ├── Newton Divided Difference/
-│   │   ├── Newton Divided Difference.cpp
-│   │   ├── input.txt
-│   │   └── output.txt
-│   └── Newton Forward Interpolation Method/
-│       ├── Newton Forward Interpolation.cpp
-│       ├── input.txt
-│       └── output.txt
-│
-├──  Linear System Equation
-│   ├── Gauss Elimination Method/
-│   │   ├── gauss_elemination.cpp
-│   │   ├── input.txt
-│   │   └── output.txt
-│   ├── Gauss Jordan Method/
-│   │   ├── Gauss Jordan.cpp
-│   │   ├── input.txt
-│   │   └── output.txt
-│   ├── Inverse Method/
-│   │   ├── Inverse.cpp
-│   │   ├── input.txt
-│   │   └── output.txt
-│   └── LU Decomposition Method/
-│
-├── Non-Linear System
-│   ├── Bisection Method/
-│   │   ├── bisection.cpp
-│   │   ├── input.txt
-│   │   └── output.txt
-│   ├── False Position/
-│   │   ├── False_position.cpp
-│   │   ├── input.txt
-│   │   └── output.txt
-│   ├── Newton Raphson Method/
-│   │   ├── newton_raphson.cpp
-│   │   ├── input.txt
-│   │   └── output.txt
-│   └── Secant Method/
-│       ├── Secant.cpp
-│       ├── input.txt
-│       └── output.txt
-│
-├──  Numerical Differentiation
-│   ├── Differentiation by Backward Interpolation/
-│   │   ├── numerical_backward.cpp
-│   │   ├── input.txt
-│   │   └── Output.txt
-│   └── Differentiation by Forward Interpolation/
-│       ├── Numerical_forward.cpp
-│       ├── input.txt
-│       └── output.txt
-│
-└──  Numerical Integration
-    ├── Simpson's 1 by 3 Rule/
-    │   ├── Simpson's 1 by 3 rule.cpp
-    │   ├── input.txt
-    │   └── output.txt
-    └── Simpson's 3 by 8 Rule/
-        ├── Simpson's 3 by 8 rule.cpp
-        ├── input.txt
-        └── output.txt
-```
 ---
 ### Solution of Non-Linear Equations
 
