@@ -25,18 +25,18 @@ All methods are **modular and well-categorized**, making the project suitable fo
 - Newton Backward Interpolation  
 - Newton Divided Difference Interpolation  
 
-### 5. Numerical Differentiation (2 Methods)
-- Differentiation by Forward Interpolation  
-- Differentiation by Backward Interpolation  
-
-### 6. Curve Fitting and Regression (3 Methods)
+### 5. Curve Fitting and Regression (3 Methods)
 - Linear Regression  
 - Polynomial Regression  
 - Transcendental Regression  
 
-### 7. Numerical Integration (2 Methods)
+### 6. Numerical Integration (2 Methods)
 - Simpson’s 1/3 Rule  
 - Simpson’s 3/8 Rule
+- 
+### 7. Numerical Differentiation (2 Methods)
+- Differentiation by Forward Interpolation  
+- Differentiation by Backward Interpolation  
   
 # Table of Contents
 - [Solution of Non-Linear Equations](#solution-of-non-linear-equations)
