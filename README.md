@@ -330,8 +330,64 @@ iteration:13
 ### False Position Method
 
 #### False Position Theory
-[Add your theory content here]
+The **False Position Method**, also known as the **Regula Falsi Method**, is a numerical technique used to find a **real root** of a nonlinear equation of the form: f(x) = 0
+This method is a **bracketing method** and combines the **reliability of the Bisection Method** with the **faster convergence of linear interpolation**.
 
+---
+## Initial Interval
+Let the initial interval be: [a, b]
+such that: f(a) · f(b) < 0
+This condition ensures that at least one real root lies within the interval.
+
+---
+## Iterative Formula
+The next approximation of the root is obtained using **linear interpolation**:
+xₙ = (a·f(b) − b·f(a)) / (f(b) − f(a))
+This point is the x-intercept of the straight line joining  
+(a, f(a)) and (b, f(b)).
+
+---
+## Iteration Process
+1. Compute the approximation `xₙ`
+2. Evaluate `f(xₙ)`
+3. Update the interval as follows:
+   - If `f(a) · f(xₙ) < 0`, set `b = xₙ`
+   - If `f(xₙ) · f(b) < 0`, set `a = xₙ`
+4. Repeat until the stopping criteria are satisfied
+---
+## Stopping Criteria
+The iteration stops when **any one** of the following conditions is met: |f(xₙ)| < ε
+or |xₙ − xₙ₋₁| < ε
+or when the maximum number of iterations is reached.
+Here, ε denotes the allowable error (tolerance).
+## 🔹 Algorithm Steps
+1. Choose initial interval `[a, b]`
+2. Check if `f(a) · f(b) < 0`
+   - If not, the method fails
+3. Compute: xₙ = (a·f(b) − b·f(a)) / (f(b) − f(a))
+4. Evaluate `f(xₙ)`
+5. Update the interval `[a, b]`
+6. Check convergence criteria
+7. Repeat steps 3–6 until convergence
+---
+##  Convergence Characteristics
+- The False Position Method converges **faster than the Bisection Method**
+- Convergence is generally **linear**
+- Convergence is **guaranteed** if the initial interval satisfies the sign-change condition
+However, convergence may become slow if one end of the interval remains fixed for many iterations.
+---
+## Advantages
+-  Guaranteed convergence
+-  Faster than Bisection Method
+-  Simple and easy to implement
+-  Does not require derivatives
+---
+## Disadvantages
+  - Slower than Newton–Raphson Method
+  - One endpoint may remain unchanged for many iterations
+  - Linear convergence
+
+---
 #### False Position Code
 ```python
 #include<bits/stdc++.h>
