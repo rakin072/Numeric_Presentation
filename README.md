@@ -422,9 +422,11 @@ iteration:13
 #### False Position Theory
 The **False Position Method**, also known as the **Regula Falsi Method**, is a numerical technique used to find a **real root** of a nonlinear equation of the form: f(x) = 0
 This method is a **bracketing method** and combines the **reliability of the Bisection Method** with the **faster convergence of linear interpolation**.
+
 ---
 
-![False Position Method](Images/Screenshot%202025-12-22%20043936.png)
+
+<img src="Images/Screenshot%202025-12-22%20043936.png" alt="False Position Method" width="400">
 
 ---
 ## Initial Interval
