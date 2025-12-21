@@ -495,24 +495,314 @@ Iteration 2 : 4
 ### Newton Raphson Method
 
 #### Newton Raphson Theory
-[Add your theory content here]
+# Newton–Raphson Method (Numerical Analysis)
 
+## Newton–Raphson Theory
+The *Newton–Raphson Method* is a numerical technique used to determine the root of a *non-linear equation* of the form:
+
+f(x) = 0
+
+Unlike the *Secant* or *False Position* methods, the Newton–Raphson Method *requires the derivative* of the function to compute successive approximations.  
+It uses a *single initial guess* that should be reasonably close to the actual root.
+
+---
+
+## Initial Guess
+Let the initial guess be: x₀
+
+---
+
+##  Iterative Formula
+The next approximation of the root is computed using the formula:
+xₙ₊₁ = xₙ − f(xₙ) / f′(xₙ)
+Here, xₙ₊₁ is obtained by finding the *x-intercept of the tangent line* to the curve  
+y = f(x) at the point (xₙ, f(xₙ)).
+
+---
+
+##  Iteration Process
+The process is repeated iteratively by updating the approximation: xₙ ← xₙ₊₁  until the difference between successive approximations becomes smaller than a prescribed tolerance: |xₙ₊₁ − xₙ| < ε or the absolute value of the function satisfies: |f(xₙ₊₁)| < ε
+where ε is the allowable error.
+
+---
+
+##  Algorithm Steps
+1. Start with an initial guess x₀
+2. Compute f(xₙ) and f′(xₙ)
+3. Calculate the next approximation: xₙ₊₁ = xₙ − f(xₙ) / f′(xₙ)
+4. Check convergence criteria:
+- If |xₙ₊₁ − xₙ| < ε *or*
+- If |f(xₙ₊₁)| < ε
+5. If satisfied, *stop*
+6. Otherwise, set xₙ = xₙ₊₁ and repeat from step 2
+
+---
+
+## Convergence Characteristics
+The Newton–Raphson Method typically converges *faster* than the Bisection or Secant methods, especially when the *initial guess is sufficiently close* to the root.
+
+However, it may fail to converge if:
+- The derivative becomes zero or very small
+  f′(xₙ) ≈ 0
+  - The initial guess is far from the actual root
+- The function has multiple roots or local extrema near the initial guess
+
+---
+
+##  Advantages
+-  Fast convergence  
+-  Quadratic convergence rate under favorable conditions  
+-  Requires fewer iterations compared to other methods  
+
+---
+
+##  Disadvantages
+-  Requires computation of derivative f′(x)
+-  Highly sensitive to initial guess
+-  May diverge if f′(x) = 0 or very small
+  ---
 #### Newton Raphson Code
 ```python
-# Add your code here
+#include <bits/stdc++.h>
+
+using namespace std;
+
+double E = .000001;
+double f(vector<double> &co, double n, double val)
+{
+    double res = 0;
+
+    for (int i = n; i >= 0; i--)
+        res += co[i] * pow(val, i);
+
+    return res;
+}
+double df(vector<double> &co, double n, double val)
+{
+    double res = 0;
+
+    for (int i = n; i >= 1; i--)
+        res += i * co[i] * pow(val, i - 1);
+
+    return res;
+}
+
+void pdf(vector<double> &co, double n)
+{
+    for (int i = n; i >= 0; i--)
+
+    {
+        if (i != 0 and co[i] != 0)
+
+            cout << i * co[i] << "x^" << i - 1;
+
+        if (i != 0 and co[i - 1] > 0)
+            cout << "+";
+
+        if (i == 0)
+            cout << i * co[i];
+    }
+    cout << endl;
+}
+
+double cnt = 1;
+double raph(vector<double> &co, double n, double x)
+{
+    double xr = x;
+
+    while (1)
+    {
+        double f1 = f(co, n, xr);
+
+        double df1 = df(co, n, xr);
+
+        cout << "f(x): " << f1 << endl;
+
+        cout << "df(x):" << df1 << endl;
+
+        double x_new = xr - (f1 / df1 * (1.00));
+
+        if (fabs(x_new - xr) < E or fabs(f(co, n, x_new) - f1) < E)
+            return x_new;
+        xr = x_new;
+
+        cnt++;
+    }
+
+    return xr;
+}
+int main()
+{    freopen("input.txt", "r", stdin);
+     freopen("output.txt", "w", stdout);
+    double t;
+    cout << "Enter number of test cases:" << endl;
+    cin >> t;
+    while (t--)
+    {
+        cout << "Enter the degree of the equation:" << endl;
+        double deg;
+        cin >> deg;
+        double n = deg;
+
+        vector<double> co(n + 1);
+        cout << "Enter coeffients:" << endl;
+        for (int i = deg; i >= 0; i--)
+            cin >> co[i];
+
+        cout << "function:";
+
+        for (int i = deg; i >= 0; i--)
+        {
+
+            if (co[i] != 0)
+            {
+
+                cout << co[i];
+
+                if (i > 0)
+
+                    cout << "x^" << i;
+            }
+            if (i - 1 >= 0 and co[i - 1] > 0)
+                cout << "+";
+        }
+        cout << endl
+             << endl;
+
+        cout << "derivative:";
+
+        pdf(co, n);
+        cout << endl;
+
+        double xmax = sqrt((co[n - 1] / co[n]) * (co[n - 1] / co[n]) - 2 * (co[n - 2] / co[n]));
+
+        double s = -xmax;
+        cout << "[-tmax,tmax]:[" << s << "," << xmax << "]" << endl;
+        double count = 0;
+
+        for (double i = s; i <= xmax; i += 0.65)
+        {
+            double f1 = f(co, n, i);
+
+            double f2 = f(co, n, i + 0.65);
+            if (f1 == 0)
+                cout << "Root found directly at x = " << i << endl;
+            else if (f1 * f2 < 0)
+
+            {
+
+                cout << "f1:" << f1 << " " << "f2:" << f2 << endl;
+
+                cnt = 1;
+
+                double root = raph(co, n, i + 0.65);
+
+                count++;
+                cout << "search interval for root is :[ " << i << " to " << i + 0.65 << " ]" << endl;
+
+                cout << "Root" << count << " : " << root << endl;
+
+                cout << "Number of the iterations: " << cnt << endl;
+
+                cout << endl;
+            }
+        }
+    }
+}
 ```
 
 #### Newton Raphson Input
 ```
-[Add your input format here]
+1
+5
+1 -8 -7 58 40
 ```
 
 #### Newton Raphson Output
 ```
-[Add your output format here]
+Enter number of test cases:
+Enter the degree of the equation:
+Enter coeffients:
+function:1x^5-8x^4-7x^3+58x^2+40x^1
+
+derivative:5x^4-32x^3-21x^2+116x^1+40x^00
+
+[-tmax,tmax]:[-8.83176,8.83176]
+f1:-286.112 f2:5.39905
+f(x): 5.39905
+df(x):208.844
+f(x): -0.189779
+df(x):223.609
+f(x): -0.000209056
+df(x):223.116
+search interval for root is :[ -2.98176 to -2.33176 ]
+Root1 : -2.35676
+Number of the iterations: 3
+
+f1:17.9257 f2:-6.606
+f(x): -6.606
+df(x):-5.4582
+f(x): 49.9505
+df(x):-36.6554
+f(x): -6.06135
+df(x):12.6915
+f(x): 13.3679
+df(x):67.0322
+f(x): 2.09041
+df(x):45.61
+f(x): 0.120231
+df(x):40.347
+f(x): 0.000514664
+df(x):40.0015
+f(x): 9.60112e-09
+df(x):40
+search interval for root is :[ -1.03176 to -0.381761 ]
+Root2 : 8.35395e-20
+Number of the iterations: 8
+
+f1:-6.606 f2:14.7277
+f(x): 14.7277
+df(x):69.013
+f(x): 2.36657
+df(x):46.2925
+f(x): 0.149312
+df(x):40.4304
+f(x): 0.000790328
+df(x):40.0023
+f(x): 2.26397e-08
+df(x):40
+search interval for root is :[ -0.381761 to 0.268239 ]
+Root3 : 4.64504e-19
+Number of the iterations: 5
+
+f1:79.3904 f2:-132.861
+f(x): -132.861
+df(x):-439.308
+f(x): -16.0026
+df(x):-333.604
+f(x): -0.398145
+df(x):-317.02
+f(x): -0.000271773
+df(x):-316.588
+search interval for root is :[ 2.86824 to 3.51824 ]
+Root4 : 3.16658
+Number of the iterations: 4
+
+f1:-1130.87 f2:710.995
+f(x): 710.995
+df(x):3989.8
+f(x): 61.8724
+df(x):3307.29
+f(x): 0.633179
+df(x):3239.72
+f(x): 6.85862e-05
+df(x):3239.02
+search interval for root is :[ 7.41824 to 8.06824 ]
+Root5 : 7.87113
+Number of the iterations: 4
+
 ```
 ⬆ [Back to Table of Contents](#toc)
-
 ### Secant Method
 
 #### Secant Theory
