@@ -342,7 +342,7 @@ This condition ensures that at least one real root lies within the interval.
 ---
 ## Iterative Formula
 The next approximation of the root is obtained using **linear interpolation**:
-xₙ = (a·f(b) − b·f(a)) / (f(b) − f(a))
+$$x_n = \frac{a \cdot f(b) - b \cdot f(a)}{f(b) - f(a)}$$
 This point is the x-intercept of the straight line joining  
 (a, f(a)) and (b, f(b)).
 
@@ -364,7 +364,7 @@ Here, ε denotes the allowable error (tolerance).
 1. Choose initial interval `[a, b]`
 2. Check if `f(a) · f(b) < 0`
    - If not, the method fails
-3. Compute: xₙ = (a·f(b) − b·f(a)) / (f(b) − f(a))
+3. Compute: $$x_n = \frac{a \cdot f(b) - b \cdot f(a)}{f(b) - f(a)}$$
 4. Evaluate `f(xₙ)`
 5. Update the interval `[a, b]`
 6. Check convergence criteria
@@ -821,7 +821,7 @@ These should be *reasonably close* to the actual root to ensure convergence.
 ---
 ##  Iterative Formula
 The next approximation of the root is computed using the *secant line formula*:
-    xₙ₊₁ = xₙ − f(xₙ) * (xₙ − xₙ₋₁) / (f(xₙ) − f(xₙ₋₁))
+   $$x_{n+1} = x_n - f(x_n) \cdot \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}$$
 Here:
 - xₙ₊₁ = next approximation
 - xₙ, xₙ₋₁ = current and previous approximations
@@ -844,7 +844,7 @@ Here, ε denotes the allowable error (tolerance).
 ---
 ##  Algorithm Steps
 1. Choose initial guesses x₀ and x₁
-2. Compute the next approximation: x₂ = x₁ − f(x₁) * (x₁ − x₀) / (f(x₁) − f(x₀))
+2. Compute the next approximation: $$x_2 = x_1 - f(x_1) \cdot \frac{x_1 - x_0}{f(x_1) - f(x_0)}$$
 3.Update previous values:
   x₀ ← x₁
   x₁ ← x₂
@@ -1066,14 +1066,15 @@ It transforms the system into an *upper triangular form* and then solves it usin
 ### Step 1: Forward Elimination
 1. Transform the augmented matrix [A|b] into an *upper triangular matrix*.
 2. For each pivot row:
-   - Make the elements below the pivot zero using row operations: Rj → Rj - (a_jk / a_kk) * Rk 
+   - Make the elements below the pivot zero using row operations: $$R_j \leftarrow R_j - \left( \frac{a_{jk}}{a_{kk}} \right) R_k$$
    - Where Rk is the pivot row and Rj is the row being eliminated.
 ---
 ### Step 2: Back Substitution
 1. After obtaining the upper triangular matrix, solve for the unknowns starting from the last row.
 2. Formula for back substitution:
-     x_n = b_n / a_nn
-     x_i = (b_i - Σ a_ij * x_j) / a_ii
+    $$x_n = \frac{b_n}{a_{nn}}$$
+
+$$x_i = \frac{1}{a_{ii}} \left( b_i - \sum_{j=i+1}^{n} a_{ij} x_j \right), \quad i = n-1, n-2, \dots, 1$$
 where the sum is over j = i+1 to n.
 ---
 ## Algorithm Steps
@@ -1296,6 +1297,7 @@ where Rk is the pivot row and Rj is the row being eliminated.
 ### Step 4: Read the Solution
 Once the augmented matrix is in RREF, the solution vector x can be directly read from the last column:
 $$x_i = b_i, \quad i = 1, 2, \dots, n$$
+
 ---
 
 ## Algorithm Steps
