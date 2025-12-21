@@ -590,6 +590,7 @@ Iteration 2 : 4
 ### Newton Raphson Method
 
 #### Newton Raphson Theory
+---
 
 ## Introduction
 The *Newton–Raphson Method* is a numerical technique used to determine the root of a *non-linear equation* of the form:
@@ -600,6 +601,7 @@ Unlike the *Secant* or *False Position* methods, the Newton–Raphson Method *re
 It uses a *single initial guess* that should be reasonably close to the actual root.
 
 <img src="Images/Screenshot%202025-12-22%20045820.png" alt="False Position Method" width="400">
+
 ---
 
 ## Initial Guess
