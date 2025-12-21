@@ -2098,6 +2098,7 @@ $$k_1 = h \cdot f(x_n, y_n)$$
 $$k_2 = h \cdot f\left(x_n + \frac{h}{2}, y_n + \frac{k_1}{2}\right)$$
 $$k_3 = h \cdot f\left(x_n + \frac{h}{2}, y_n + \frac{k_2}{2}\right)$$
 $$k_4 = h \cdot f(x_n + h, y_n + k_3)$$
+
 $$y_{n+1} = y_n + \frac{1}{6} (k_1 + 2k_2 + 2k_3 + k_4)$$
 
 Here:
@@ -2195,7 +2196,62 @@ y(0.300000) = 1.488017
 ### Linear Equation Method
 
 #### Linear Equation Theory
-[Add your theory content here]
+## Introduction
+The *Least Squares Method* finds the *best-fitting line* for a set of data points \((x_i, y_i)\).  
+The line has the form:
+
+$$
+y = a + b x
+$$
+
+where:
+- \(a\) = intercept  
+- \(b\) = slope
+
+It minimizes the sum of squared errors between the line and the data points:
+
+$$
+S = \sum_{i=1}^{n} \left[ y_i - (a + b x_i) \right]^2
+$$
+
+---
+
+## Formulas
+
+### Slope (\(b\)):
+$$
+b = \frac{n \sum x_i y_i - \sum x_i \sum y_i}{n \sum x_i^2 - (\sum x_i)^2}
+$$
+
+### Intercept (\(a\)):
+$$
+a = \frac{\sum y_i - b \sum x_i}{n}
+$$
+
+---
+
+## Steps
+1. Collect data points \((x_i, y_i)\).  
+2. Compute $$\(\sum x_i, \sum y_i, \sum x_i y_i, \sum x_i^2\)$$.  
+3. Calculate slope $$\(b\)$$ and intercept $$\(a\)$$.  
+4. Form the regression line:
+
+$$
+y = a + b x
+$$
+
+---
+
+## Advantages
+- Simple and easy to compute  
+- Provides a best-fit line for linear data  
+
+## Disadvantages
+- Only works for linear relationships  
+- Sensitive to outliers  
+
+---
+
 
 #### Linear Equation Code
 ```python
